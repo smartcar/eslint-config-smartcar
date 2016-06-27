@@ -1,0 +1,40 @@
+{
+  "name": "eslint-config-smartcar",
+  "version": "0.0.1",
+  "description": "Shareable eslint config for smartcar",
+  "files": [
+    "index.js",
+    "browser.js"
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smartcar/eslint-config-smartcar.git"
+  },
+  "keywords": [
+    "eslint",
+    "smartcar",
+    "lint",
+    "style"
+  ],
+  "author": "Smartcar <hello@smartcar.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smartcar/eslint-config-smartcar/issues"
+  },
+  "homepage": "https://github.com/smartcar/eslint-config-smartcar#readme",
+  "dependencies": {
+    "eslint": "^2.13.1"
+  },
+  "peerDependencies": {
+    "eslint": ">=2.13.1"
+  },
+  "devDependencies": {
+    "is-plain-obj": "^1.1.0"
+  }
+}
