@@ -1,0 +1,14 @@
+language:
+  - node_js
+
+node_js:
+  - stable
+  - '4.x'
+
+deploy:
+  on:
+    branch: master
+    node: stable
+  provider: hello@smartcar.com
+  api_key: $NPM_API_TOKEN
+
