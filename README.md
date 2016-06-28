@@ -1,6 +1,6 @@
 # eslint-config-smartcar
 
-> ESLint [shareable config](http://eslint.org/docs/developer-guide/shareable-configs.html) for [Smartcar](https://github.com/sindresorhus/xo)
+> ESLint [shareable config](http://eslint.org/docs/developer-guide/shareable-configs.html) for [Smartcar](https://github.com/smartcar)
 
 ## Install
 
