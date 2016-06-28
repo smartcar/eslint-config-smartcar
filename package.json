@@ -10,7 +10,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -28,13 +28,13 @@
     "url": "https://github.com/smartcar/eslint-config-smartcar/issues"
   },
   "homepage": "https://github.com/smartcar/eslint-config-smartcar#readme",
-  "dependencies": {
-    "eslint": "^2.13.1"
-  },
   "peerDependencies": {
     "eslint": ">=2.13.1"
   },
   "devDependencies": {
-    "is-plain-obj": "^1.1.0"
+    "ava": "^0.15.2",
+    "eslint": "^2.13.1",
+    "is-plain-obj": "^1.1.0",
+    "temp-write": "^2.1.0"
   }
 }
