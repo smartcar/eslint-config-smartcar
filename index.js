@@ -7,6 +7,38 @@ module.exports = {
   },
   extends: 'eslint:recommended',
   rules: {
+    // Possible Errors
+    'no-cond-assign': 'error',
+    'no-console': 'error',
+    'no-constant-condition': 'error',
+    'no-control-regex': 'error',
+    'no-debugger': 'error',
+    'no-dupe-args': 'error',
+    'no-dupe-keys': 'error',
+    'no-duplicate-case': 'error',
+    'no-empty': 'error',
+    'no-empty-character-class': 'error',
+    'no-ex-assign': 'error',
+    'no-extra-boolean-cast': 'error',
+    'no-extra-parens': 'off',
+    'no-extra-semi': 'error',
+    'no-func-assign': 'error',
+    'no-inner-declarations': ['error','functions' ],
+    'no-invalid-regexp': 'error',
+    'no-irregular-whitespace': 'error',
+    'no-negated-in-lhs': 'error',
+    'no-obj-calls': 'error',
+    'no-prototype-builtins': 'off',
+    'no-regex-spaces': 'error',
+    'no-spare-arrays': 'error',
+    'no-unexpected-multiline': 'error',
+    'no-unreachable': 'error',
+    'no-unsafe-finally': 'error',
+    'use-isnan': 'error',
+    'valid-jsdoc': 'warn',
+    'valid-typeof': 'error',
+
+    // Best Practices
     'accessor-pairs': 'error',
     'array-bracket-spacing': 'off',
     'array-callback-return': 'off',
@@ -25,10 +57,6 @@ module.exports = {
     'callback-return': 'error',
     'camelcase': 'off',
     'comma-spacing': 'off',
-    'comma-dangle': [
-      'error',
-      'only-multiline',
-    ],
     'comma-style': [
       'error',
       'last'
@@ -71,6 +99,10 @@ module.exports = {
       'error',
       'unix'
     ],
+    'comma-dangle': [
+      'error',
+      'only-multiline',
+    ],
     'lines-around-comment': 'off',
     'max-depth': 'off',
     'max-len': 'off',
@@ -88,10 +120,6 @@ module.exports = {
     'no-bitwise': 'off',
     'no-caller': 'error',
     'no-catch-shadow': 'error',
-    'no-cond-assign': [
-      'error',
-      'except-parens'
-    ],
     'no-confusing-arrow': 'error',
     'no-continue': 'error',
     'no-div-regex': 'error',
@@ -103,15 +131,10 @@ module.exports = {
     'no-extend-native': 'error',
     'no-extra-bind': 'error',
     'no-extra-label': 'error',
-    'no-extra-parens': 'off',
     'no-floating-decimal': 'error',
     'no-implicit-globals': 'error',
     'no-implied-eval': 'error',
     'no-inline-comments': 'off',
-    'no-inner-declarations': [
-      'error',
-      'functions'
-    ],
     'no-invalid-this': 'off',
     'no-iterator': 'error',
     'no-label-var': 'error',
@@ -140,7 +163,6 @@ module.exports = {
     'no-process-env': 'off',
     'no-process-exit': 'off',
     'no-proto': 'error',
-    'no-prototype-builtins': 'off',
     'no-restricted-globals': 'error',
     'no-restricted-imports': 'error',
     'no-restricted-modules': 'error',
@@ -166,7 +188,6 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'no-unmodified-loop-condition': 'error',
     'no-unneeded-ternary': 'error',
-    'no-unsafe-finally': 'error',
     'no-unused-expressions': 'error',
     'no-use-before-define': 'off',
     'no-useless-call': 'error',
@@ -228,7 +249,6 @@ module.exports = {
       'error',
       'never'
     ],
-    'valid-jsdoc': 'off',
     'vars-on-top': 'off',
     'wrap-regex': 'off',
     'yield-star-spacing': 'error',
