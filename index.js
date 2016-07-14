@@ -95,9 +95,36 @@ module.exports = {
     'no-self-assign': 'error',
     'no-self-compare': 'error',
     'no-sequences': 'error',
+    'no-throw-literal': 'error',
+    'no-unmodified-loop-condition': 'error',
+    'no-unused-expressions': 'error',
+    'no-unused-labels': 'error',
+    'no-useless-call': 'error',
+    'no-useless-concat': 'error',
+    'no-useless-escape': 'error',
+    'no-void': 'error',
+    'no-warning-comments': 'off',
+    'no-with': 'error',
+    'radix': 'as-needed',
+    'vars-on-top': 'off',
+    'wrap-iife': 'outside',
+    'yoda': ['error', 'never', { 'exceptRange': true }],
+    'strict': 'global',
 
-
-
+    // Variables
+    'init-declarations': 'off',
+    'no-catch-shadow': 'off', // < IE8 rule
+    'no-delete-var': 'error',
+    'no-label-var': 'error',
+    'no-restricted-globals': 'error',
+    'no-shadow': 'off',
+    'no-shadow-restricted-names': 'error',
+    'no-undef': 'error',
+    'no-undef-init': 'error',
+    'no-undefined': 'off',
+    'no-unused-vars': ['error', { 'vars': 'all', 'args': 'after-used' }],
+    'no-use-before-define': ['error', { 'functions': false, 'classes': true }],
+    
     // still need to double check the rest
     'comma-dangle': [
       'error',
@@ -137,7 +164,6 @@ module.exports = {
     'id-length': 'off',
     'id-match': 'error',
     'indent': 'off',
-    'init-declarations': 'off',
     'jsx-quotes': 'error',
     'key-spacing': 'off',
     'keyword-spacing': 'off',
@@ -159,12 +185,10 @@ module.exports = {
     'newline-per-chained-call': 'off',
     'no-array-constructor': 'error',
     'no-bitwise': 'off',
-    'no-catch-shadow': 'error',
     'no-confusing-arrow': 'error',
     'no-continue': 'error',
     'no-duplicate-imports': 'error',
     'no-inline-comments': 'off',
-    'no-label-var': 'error',
     'no-lonely-if': 'off',
     'no-mixed-operators': 'off',
     'no-mixed-requires': 'error',
@@ -177,40 +201,26 @@ module.exports = {
     'no-plusplus': 'off',
     'no-process-env': 'off',
     'no-process-exit': 'off',
-    'no-restricted-globals': 'error',
     'no-restricted-imports': 'error',
     'no-restricted-modules': 'error',
     'no-restricted-syntax': 'error',
-    'no-shadow': 'off',
-    'no-shadow-restricted-names': 'error',
     'no-spaced-func': 'error',
     'no-sync': 'off',
     'no-ternary': 'off',
-    'no-throw-literal': 'off',
     'no-trailing-spaces': [
       'error',
       {
         'skipBlankLines': true
       }
     ],
-    'no-undef-init': 'off',
-    'no-undefined': 'off',
     'no-underscore-dangle': 'off',
-    'no-unmodified-loop-condition': 'error',
     'no-unneeded-ternary': 'error',
-    'no-unused-expressions': 'error',
-    'no-use-before-define': 'off',
-    'no-useless-call': 'error',
+   
     'no-useless-computed-key': 'error',
-    'no-useless-concat': 'error',
     'no-useless-constructor': 'error',
-    'no-useless-escape': 'off',
     'no-useless-rename': 'error',
     'no-var': 'off',
-    'no-void': 'off',
-    'no-warning-comments': 'off',
     'no-whitespace-before-property': 'error',
-    'no-with': 'error',
     'object-curly-newline': 'off',
     'object-curly-spacing': 'off',
     'object-property-newline': [
@@ -233,7 +243,6 @@ module.exports = {
     'prefer-template': 'off',
     'quote-props': 'off',
     'quotes': 'off',
-    'radix': 'off',
     'require-jsdoc': 'off',
     'require-yield': 'error',
     'rest-spread-spacing': 'error',
@@ -253,15 +262,12 @@ module.exports = {
       'error',
       'always'
     ],
-    'strict': 'off',
     'template-curly-spacing': 'error',
     'unicode-bom': [
       'error',
       'never'
     ],
-    'vars-on-top': 'off',
     'wrap-regex': 'off',
     'yield-star-spacing': 'error',
-    'yoda': 'off'
   }
 };
