@@ -1,4 +1,4 @@
-# eslint-config-smartcar
+# eslint-config-smartcar [![Build Status](https://img.shields.io/travis/smartcar/eslint-config-smartcar.svg?style=flat-square)](https://travis-ci.org/smartcar/eslint-config-smartcar)
 
 > ESLint [shareable config](http://eslint.org/docs/developer-guide/shareable-configs.html) for [Smartcar](https://github.com/smartcar)
 
