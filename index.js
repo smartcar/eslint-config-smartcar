@@ -124,7 +124,19 @@ module.exports = {
     'no-undefined': 'off',
     'no-unused-vars': ['error', { 'vars': 'all', 'args': 'after-used' }],
     'no-use-before-define': ['error', { 'functions': false, 'classes': true }],
-    
+
+    // nodejs & commonjs
+    'callback-return': 'error',
+    'global-require': 'error',
+    'handle-callback-error': 'error',
+    'no-mixed-requires': 'error',
+    'no-new-require': 'error',
+    'no-path-concat': 'error',
+    'no-process-env': 'error',
+    'no-process-exit': 'error',
+    'no-restricted-modules': 'off',
+    'no-sync': 'off',
+
     // still need to double check the rest
     'comma-dangle': [
       'error',
@@ -142,7 +154,6 @@ module.exports = {
         'allowSingleLine': true
       }
     ],
-    'callback-return': 'error',
     'camelcase': 'off',
     'comma-spacing': 'off',
     'comma-style': [
@@ -158,7 +169,6 @@ module.exports = {
     'func-names': 'off',
     'func-style': 'off',
     'generator-star-spacing': 'error',
-    'global-require': 'off',
     'handle-callback-err': 'off',
     'id-blacklist': 'error',
     'id-length': 'off',
@@ -191,21 +201,14 @@ module.exports = {
     'no-inline-comments': 'off',
     'no-lonely-if': 'off',
     'no-mixed-operators': 'off',
-    'no-mixed-requires': 'error',
     'no-multiple-empty-lines': 'error',
     'no-negated-condition': 'off',
     'no-nested-ternary': 'off',
     'no-new-object': 'error',
-    'no-new-require': 'error',
-    'no-path-concat': 'off',
     'no-plusplus': 'off',
-    'no-process-env': 'off',
-    'no-process-exit': 'off',
     'no-restricted-imports': 'error',
-    'no-restricted-modules': 'error',
     'no-restricted-syntax': 'error',
     'no-spaced-func': 'error',
-    'no-sync': 'off',
     'no-ternary': 'off',
     'no-trailing-spaces': [
       'error',
@@ -215,7 +218,6 @@ module.exports = {
     ],
     'no-underscore-dangle': 'off',
     'no-unneeded-ternary': 'error',
-   
     'no-useless-computed-key': 'error',
     'no-useless-constructor': 'error',
     'no-useless-rename': 'error',
