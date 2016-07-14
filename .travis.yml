@@ -9,6 +9,7 @@ deploy:
   on:
     branch: master
     node: stable
-  provider: hello@smartcar.com
+  provider: npm
+  email: hello@smartcar.com
   api_key: $NPM_API_TOKEN
 
