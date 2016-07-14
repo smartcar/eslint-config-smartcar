@@ -24,7 +24,7 @@ test('main', function(t) {
   t.is(errors[0].ruleId, 'quotes');
 });
 
-test('browser',function(t) {
+test('browser', function(t) {
   var conf = require('../browser');
 
   t.true(isPlainObj(conf));
