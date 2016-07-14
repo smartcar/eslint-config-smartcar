@@ -21,7 +21,7 @@ test('main', function(t) {
   t.true(isPlainObj(conf.rules));
 
   var errors = runEslint('\'use strict\';\nconsole.log("unicorn")\n', conf);
-  t.is(errors[0].ruleId, 'quotes');
+  t.is(errors[0].ruleId, 'no-console');
 });
 
 test('browser', function(t) {
@@ -30,5 +30,5 @@ test('browser', function(t) {
   t.true(isPlainObj(conf));
 
   var errors = runEslint('\'use strict\';\nprocess.exit();\n', conf);
-  t.is(errors[0].ruleId, 'no-undef');
+  t.is(errors[0].ruleId, 'no-process-exit');
 });

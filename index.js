@@ -179,7 +179,6 @@ module.exports = {
     'no-negated-condition': 'off',
     'no-nested-ternary': 'error',
     'no-new-object': 'error',
-    'no-object': 'error',
     'no-plusplus': 'off',
     'no-restricted-syntax': 'off',
     'no-spaced-func': 'error',
