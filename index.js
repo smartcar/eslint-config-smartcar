@@ -137,7 +137,7 @@ module.exports = {
     // Style
     'array-bracket-spacing': ['error', 'never'],
     'block-spacing': ['error', 'always'],
-    'brace-style': ['error', '1tbs', {allowSingleLine: false}],
+    'brace-style': ['error', '1tbs', {allowSingleLine: true}],
     'camelcase': ['error', {properties: 'always'}],
     'comma-dangle': ['error', 'only-multiline'],
     'comma-spacing': ['error', {before: false, after: true}],
@@ -165,7 +165,7 @@ module.exports = {
     'max-statements-per-line': ['error', {max: 2}],
     'new-cap': ['error', {newIsCap: true, capIsNew: false}],
     'new-parens': 'error',
-    'newline-after-var': ['error', 'always'],
+    'newline-after-var': 'off',
     'newline-before-return': 'off',
     'newline-per-chained-call': ['warn', {ignoreChainWithDepth: 2}],
     'no-array-constructor': 'error',
