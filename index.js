@@ -70,7 +70,7 @@ module.exports = {
     'no-implicit-coercion': 'error',
     'no-implicit-globals': 'error',
     'no-implied-eval': 'error',
-    'no-invalid-this': 'error',
+    'no-invalid-this': 'off', // Doesn't work with Promise.bind()
     'no-iterator': 'error',
     'no-labels': 'error',
     'no-lone-blocks': 'error',
@@ -150,7 +150,7 @@ module.exports = {
     'id-blacklist': 'off',
     'id-length': 'off',
     'id-match': 'off',
-    'indent': ['error', 2],
+    'indent': ['error', 2, {SwitchCase: 1 }],
     'jsx-quotes': 'off', // JSX related rule
     'key-spacing': ['error', {beforeColon: false, afterColon: true, mode: 'strict'}],
     'keyword-spacing': ['error', {before: true, after: true}],
