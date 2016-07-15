@@ -104,7 +104,7 @@ module.exports = {
     'no-with': 'error',
     'radix': ['error', 'as-needed'],
     'vars-on-top': 'off',
-    'wrap-iife': ['error', 'outside'],
+    'wrap-iife': ['error', 'inside'],
     'yoda': ['error', 'never', {exceptRange: true}],
     'strict': ['error', 'global'],
 
