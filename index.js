@@ -189,7 +189,7 @@ module.exports = {
     'no-whitespace-before-property': 'error',
     'object-curly-newline': ['error', {multiline: true}],
     'object-property-newline': ['error', {allowMultiplePropertiesPerLine: true}],
-    'object-curly-spacing': ['error', 'always', {objectsInObjects: false, arraysInObjects: false}],
+    'object-curly-spacing': ['error', 'never', {objectsInObjects: false, arraysInObjects: false}],
     'one-var': 'off',
     'one-var-declaration-per-line': 'off',
     'operator-assignment': 'off',
