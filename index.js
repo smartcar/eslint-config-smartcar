@@ -165,7 +165,7 @@ module.exports = {
     'max-statements-per-line': ['error', {max: 2}],
     'new-cap': ['error', {newIsCap: true, capIsNew: false}],
     'new-parens': 'error',
-    'newline-after-var': ['error', 'always'],
+    'newline-after-var': 'off',
     'newline-before-return': 'off',
     'newline-per-chained-call': ['warn', {ignoreChainWithDepth: 2}],
     'no-array-constructor': 'error',
