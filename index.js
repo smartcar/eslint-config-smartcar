@@ -159,7 +159,7 @@ module.exports = {
     'max-depth': ['error', 4],
     'max-len': ['error', {code: 80, comments: 100, ignoreUrls: false, ignorePattern: '^\\s*var\\s.+=\\s*require\\s*\\(/'}],
     'max-lines': 'off',
-    'max-nested-callbacks': ['error', 3],
+    'max-nested-callbacks': ['error', 5],
     'max-params': ['error', 6],
     'max-statements': 'off',
     'max-statements-per-line': ['error', {max: 2}],
