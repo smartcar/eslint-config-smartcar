@@ -166,7 +166,7 @@ module.exports = {
     'new-cap': ['error', {newIsCap: true, capIsNew: false}],
     'new-parens': 'error',
     'newline-after-var': ['error', 'always'],
-    'newline-before-return': 'error',
+    'newline-before-return': 'off',
     'newline-per-chained-call': ['warn', {ignoreChainWithDepth: 2}],
     'no-array-constructor': 'error',
     'no-bitwise': 'warn',
