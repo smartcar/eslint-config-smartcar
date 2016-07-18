@@ -157,7 +157,7 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'lines-around-comment': ['error', {beforeBlockComment: true}],
     'max-depth': ['error', 4],
-    'max-len': ['error', {code: 80, comments: 100, ignoreUrls: false, ignorePattern: '^\\s*var\\s.+=\\s*require\\s*\\(/'}],
+    'max-len': ['error', {code: 80, comments: 100, ignoreUrls: false, ignorePattern: '^\\s*var\\s.+=\\s*require\\s*\\('}],
     'max-lines': 'off',
     'max-nested-callbacks': ['error', 5],
     'max-params': ['error', 6],
