@@ -1,4 +1,4 @@
-# eslint-config-smartcar [![Build Status](https://img.shields.io/travis/smartcar/eslint-config-smartcar.svg?style=flat-square)](https://travis-ci.org/smartcar/eslint-config-smartcar)
+# eslint-config-smartcar [![Build Status](https://img.shields.io/travis/smartcar/eslint-config-smartcar.svg?style=flat-square)](https://travis-ci.org/smartcar/eslint-config-smartcar) [![npm](https://img.shields.io/npm/v/eslint-config-smartcar.svg?maxAge=2592000?style=flat-square?style=flat-square)](https://www.npmjs.com/package/eslint-config-smartcar)
 
 > ESLint [shareable config](http://eslint.org/docs/developer-guide/shareable-configs.html) for [Smartcar](https://github.com/smartcar)
 
