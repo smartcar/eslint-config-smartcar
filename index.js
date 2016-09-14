@@ -139,7 +139,7 @@ module.exports = {
     'block-spacing': ['error', 'always'],
     'brace-style': ['error', '1tbs', {allowSingleLine: true}],
     'camelcase': ['error', {properties: 'always'}],
-    'comma-dangle': ['error', 'only-multiline'],
+    'comma-dangle': ['error', 'always-multiline'],
     'comma-spacing': ['error', {before: false, after: true}],
     'comma-style': ['error', 'last'],
     'computed-property-spacing': ['error', 'never'],
@@ -157,7 +157,12 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'lines-around-comment': ['error', {beforeBlockComment: true}],
     'max-depth': ['error', 4],
-    'max-len': ['error', {code: 80, comments: 100, ignoreUrls: true, ignorePattern: '^\\s*var\\s.+=\\s*(require|rewire)\\s*\\('}],
+    'max-len': ['error', {
+      code: 80,
+      comments: 100,
+      ignoreUrls: true,
+      ignorePattern: '^\\s*.+=\\s*(require|rewire)\\s*\\('
+    }],
     'max-lines': 'off',
     'max-nested-callbacks': ['error', 5],
     'max-params': ['error', 6],
