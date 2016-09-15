@@ -12,8 +12,23 @@ You may also be able to integrate ESLint into your text editor, a list of integr
 is available [here](http://eslint.org/docs/user-guide/integrations).
 
 **Note:** If you intall eslint globally, you have to install eslint-config-smartcar
-globally as well (as per [eslint#3293](https://github.com/eslint/eslint/issues/3293)). 
+globally as well (as per [eslint#3293](https://github.com/eslint/eslint/issues/3293)).
 It is recommended to install locally and add scripts to package.json as detailed under usage below.
+
+### Pre-Commit Hook
+Installing this config in a project which is or is within a git repository will
+install a lint precommit hook. The hook will run eslint prior to every
+commit and will prevent the commit from being made if lint fails.
+
+For emergency situations the lint check can be turned off by setting the
+environment variable `LINT_OFF` to any value.
+
+Example:
+
+```bash
+LINT_OFF=true git commit
+```
+
 
 ## Usage
 
@@ -23,8 +38,7 @@ Add some ESLint config to your `package.json`:
 {
 	"name": "my-awesome-project",
 	"scripts": {
-		"lint": "eslint .",
-		"lint-fix": "eslint . --fix"
+		"lint": "eslint ."
 	},
 	"eslintConfig": {
 		"extends": "smartcar"
@@ -33,7 +47,7 @@ Add some ESLint config to your `package.json`:
 ```
 
 To run the linter on your project simply run `npm run lint` and ESLint will report
-back errors and warnings. You can also run `npm run lint-fix` to use ESLint's 
+back errors and warnings. You can also run `npm run lint -- --fix` to use ESLint's
 automatic fix mode, this will fix most simple style and spacing errors.
 
 Alternatively use [`smartcar/browser`](browser.js) if you're in the browser:
