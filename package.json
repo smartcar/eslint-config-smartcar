@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-smartcar",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Shareable eslint config for smartcar",
   "files": [
     "index.js",
@@ -10,7 +10,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "postinstall": "bin/install-hook.sh"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,11 @@
     "smartcar",
     "lint",
     "style"
+  ],
+  "files": [
+    "bin",
+    "browser.js",
+    "index.js"
   ],
   "author": "Smartcar <hello@smartcar.com>",
   "license": "MIT",
