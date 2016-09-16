@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ $LINT_OFF  || $lint_off ]] ; then
+  echo -e "\e[1;31m[smartcar-lint]\e[0m skipping check"
+  exit
+fi
+
+echo -e "\e[1;32m[smartcar-lint]\e[0m running check..."
+$(npm bin)/eslint .
