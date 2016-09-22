@@ -11,7 +11,7 @@
   },
   "scripts": {
     "test": "ava",
-    "postinstall": "bin/install-hook.sh"
+    "postinstall": "node bin/install-hook.js"
   },
   "repository": {
     "type": "git",
