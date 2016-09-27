@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var process = require('process');
-var exec = require('child_process').execSync;
+var spawn = require('child_process').spawnSync;
 
 if (process.env.LINT_OFF || process.env.lint_off) {
   printColored('skipping check', 31);
@@ -11,11 +11,26 @@ if (process.env.LINT_OFF || process.env.lint_off) {
 var config = require('./lint_config');
 var projects = Object.keys(config);
 
-projects.forEach(function(project) {
-  var cfg = config[project];
+var success = projects.every(function(project) {
   printColored('linting ' + project + '...', 32);
-  exec(cfg.linter + ' . --cache', {cwd: cfg.wd});
+  return lint(config[project]);
 });
+
+if (!success) printColored('lint failed!', 31);
+else printColored('lint passed!', 32);
+
+process.exit(success ? 0 : 1);
+
+function lint(config) {
+  var result = spawn(config.linter + ' . --cache --color', {
+    cwd: config.wd,
+    shell: true,
+  });
+
+  if (result.stdout.length > 0) console.log(result.stdout.toString());
+  if (result.stderr.length > 0) console.error(result.stderr.toString());
+  return result.status === 0;
+}
 
 function printColored(str, color) {
   var prefix = '\033[' + color + 'm[smartcar-lint]\033[0m ';
