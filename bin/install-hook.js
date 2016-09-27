@@ -18,7 +18,7 @@ try {
   return;
 }
 
-var gitHome = path.resolve(gitOutput.toString());
+var gitHome = path.resolve(gitOutput.toString().replace(/\n/, ''));
 var projectDir = path.resolve(cwd, '../../');
 
 var name;
@@ -28,7 +28,26 @@ try {
   name = path.basename(projectDir);
 }
 
-// TODO create config file and write to it, copy over the hook
+var config;
+var configPath = gitHome + '/lint_config.json';
+try {
+  config = require(configPath);
+} catch(e) {
+  config = {};
+}
+
+config[name] = projectDir;
+fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
+
+var copyCommand = process.platform === 'win32' ? 'copy' : 'cp';
+try {
+  var source = path.resolve(cwd, 'bin/pre-commit.hook');
+  var dest  = path.resolve(gitHome, '.git/hooks/pre-commit');
+  exec([copyCommand, source, dest].join(' '));
+} catch (e) {
+  console.log(e);
+}
+
 console.log('gitHome', gitHome);
 console.log('projectDir', projectDir);
 console.log('projectName', name);
