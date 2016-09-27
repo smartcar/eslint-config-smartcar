@@ -1,9 +1,22 @@
-#!/bin/bash
+#!/usr/bin/env node
 
-if [[ $LINT_OFF  || $lint_off ]] ; then
-  echo -e "\e[1;31m[smartcar-lint]\e[0m skipping check"
-  exit
-fi
+var process = require('process');
+var exec = require('child_process').execSync;
 
-echo -e "\e[1;32m[smartcar-lint]\e[0m running check..."
-$(npm bin)/eslint .
+if (process.env.LINT_OFF || process.env.lint_off) {
+  printColored('skipping check', 31);
+  return;
+}
+
+var config = require('./lint_config');
+var projects = Object.keys(config);
+
+projects.forEach(function(project) {
+  printColored('linting ' + project + '...', 32);
+  exec(config[project] + ' . --cache');
+});
+
+function printColored(str, color) {
+  var prefix = '\033[' + color + 'm[smartcar-lint]\033[0m ';
+  console.log(prefix + str);
+}
