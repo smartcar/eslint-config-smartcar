@@ -18,7 +18,7 @@ try {
   return;
 }
 
-var gitHome = path.resolve(gitOutput.toString().replace(/\n/, ''));
+var gitHome = path.resolve(gitOutput.toString().replace(/[\n\r]+/, ''));
 var projectDir = path.resolve(cwd, '../../');
 
 var name;
@@ -28,8 +28,9 @@ try {
   name = path.basename(projectDir);
 }
 
+// Read in the config file, edit and write it back
 var config;
-var configPath = gitHome + '/lint_config.json';
+var configPath = gitHome + '/.git/hooks/lint_config.json';
 try {
   config = require(configPath);
 } catch(e) {
@@ -39,15 +40,14 @@ try {
 config[name] = projectDir;
 fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
 
+
+// Copy the actual hook file
 var copyCommand = process.platform === 'win32' ? 'copy' : 'cp';
 try {
   var source = path.resolve(cwd, 'bin/pre-commit.hook');
   var dest  = path.resolve(gitHome, '.git/hooks/pre-commit');
   exec([copyCommand, source, dest].join(' '));
 } catch (e) {
-  console.log(e);
+  console.error('Failed to install precommit hook');
+  console.error(e);
 }
-
-console.log('gitHome', gitHome);
-console.log('projectDir', projectDir);
-console.log('projectName', name);
