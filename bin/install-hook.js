@@ -37,7 +37,10 @@ try {
   config = {};
 }
 
-config[name] = projectDir;
+config[name] = {
+  linter: path.resolve(projectDir, 'node_modules/.bin/eslint'),
+  wd: projectDir,
+};
 fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
 
 

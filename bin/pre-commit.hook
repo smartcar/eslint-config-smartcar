@@ -12,8 +12,9 @@ var config = require('./lint_config');
 var projects = Object.keys(config);
 
 projects.forEach(function(project) {
+  var cfg = config[project];
   printColored('linting ' + project + '...', 32);
-  exec(config[project] + ' . --cache');
+  exec(cfg.linter + ' . --cache', {cwd: cfg.wd});
 });
 
 function printColored(str, color) {
