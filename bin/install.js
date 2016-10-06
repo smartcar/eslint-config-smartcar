@@ -42,15 +42,15 @@ try {
 }
 
 // add .eslintcache to gitignore
+const gitignorePath = path.resolve(gitHome, '.gitignore');
 try {
-  const gitignorePath = path.resolve(gitHome, '.gitignore');
   const gitignore = fs.readFileSync(gitignorePath).toString();
 
   if (gitignore.indexOf('.eslintcache') < 0) {
     fs.appendFile(gitignorePath, '.eslintcache');
   }
 } catch (e) {
-  // missing gitignore shouldn't block install
+  fs.writeFile(gitignorePath, '.eslintcache');
 }
 
 // Read in the config file, edit and write it back
