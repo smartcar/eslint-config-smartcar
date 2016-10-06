@@ -54,13 +54,13 @@ if (Object.keys(config).length === 0) {
   fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
 }
 
-const dest  = path.resolve(gitHome, '.git/hooks/pree-commit');
+const dest  = path.resolve(gitHome, '.git/hooks/pre-commit');
 try {
   const flag = 'Installed by eslint-config-smartcar';
   const file = fs.readFileSync(dest).toString();
 
   // hook exists and was installed by this module
-  if (file.indexOf(flag) >= 0)
+  if (file.indexOf(flag) >= 0) {
     fs.unlink(dest);
   }
 } catch (e) {

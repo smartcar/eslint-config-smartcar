@@ -69,7 +69,7 @@ config[name] = {
 fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
 
 // Bail if a pre-commit hook exists that wasn't installed by this module
-const dest  = path.resolve(gitHome, '.git/hooks/pree-commit');
+const dest  = path.resolve(gitHome, '.git/hooks/pre-commit');
 try {
   const flag = 'Installed by eslint-config-smartcar';
   const file = fs.readFileSync(dest).toString();
