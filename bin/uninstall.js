@@ -32,6 +32,10 @@ try {
     delete packageFile.eslintConfig.extends;
   }
 
+  if (Object.keys(packageFile.eslintConfig).length === 0) {
+    delete packageFile.eslintConfig;
+  }
+
   fs.writeFileSync(packagePath, JSON.stringify(packageFile, null, 2));
   name = packageFile.name;
 } catch (e) {
