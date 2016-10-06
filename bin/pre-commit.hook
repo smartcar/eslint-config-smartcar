@@ -1,17 +1,18 @@
 #!/usr/bin/env node
+// Installed by eslint-config-smartcar
 
-var process = require('process');
-var spawn = require('child_process').spawnSync;
+const process = require('process');
+const spawn = require('child_process').spawnSync;
 
 if (process.env.LINT_OFF || process.env.lint_off) {
   printColored('skipping check', 31);
   return;
 }
 
-var config = require('./lint_config');
-var projects = Object.keys(config);
+const config = require('./lint_config');
+const projects = Object.keys(config);
 
-var success = projects.every(function(project) {
+const success = projects.every(function(project) {
   printColored('linting ' + project + '...', 32);
   return lint(config[project]);
 });
@@ -22,7 +23,7 @@ else printColored('lint passed!', 32);
 process.exit(success ? 0 : 1);
 
 function lint(config) {
-  var result = spawn(config.linter + ' . --cache --color', {
+  const result = spawn(config.linter + ' . --cache --color', {
     cwd: config.wd,
     shell: true,
   });
@@ -33,6 +34,6 @@ function lint(config) {
 }
 
 function printColored(str, color) {
-  var prefix = '\033[' + color + 'm[smartcar-lint]\033[0m ';
+  const prefix = '\033[' + color + 'm[smartcar-lint]\033[0m ';
   console.log(prefix + str);
 }
