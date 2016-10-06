@@ -1,11 +1,11 @@
 'use strict';
 
-var fs = require('fs');
-var path = require('path');
-var exec = require('child_process').execSync;
-var process = require('process');
+const fs = require('fs');
+const path = require('path');
+const exec = require('child_process').execSync;
+const process = require('process');
 
-var cwd = process.cwd();
+const cwd = process.cwd();
 
 var isSubModule = (/node_modules.*node_modules/).test(cwd);
 if (isSubModule) {
@@ -13,24 +13,37 @@ if (isSubModule) {
 }
 
 try {
-  var gitOutput = exec('git rev-parse --show-toplevel 2> /dev/null');
+  var gitOutput = exec('git rev-parse --show-toplevel', {
+    stdio: ['ignore', null, 'ignore'],
+  });
 } catch (e) {
   return;
 }
 
-var gitHome = path.resolve(gitOutput.toString().replace(/[\n\r]+/, ''));
-var projectDir = path.resolve(cwd, '../../');
+const gitHome = path.resolve(gitOutput.toString().replace(/[\n\r]+/, ''));
+const projectDir = path.resolve(cwd, '../../');
+const packagePath = path.resolve(projectDir, 'package.json');
 
 var name;
 try {
-  name = require(projectDir + '/project.json').name;
+  var packageFile = require(packagePath);
+
+  // Add in eslintconfig if package.json exists
+  packageFile.eslintConfig = packageFile.eslintConfig || {};
+  packageFile.eslintConfig.extends = 'smartcar';
+
+  packageFile.scripts = packageFile.scripts || {};
+  packageFile.scripts.lint = packageFile.scripts.lint || 'eslint .';
+
+  fs.writeFileSync(packagePath, JSON.stringify(packageFile, null, 2));
+  name = packageFile.name;
 } catch (e) {
   name = path.basename(projectDir);
 }
 
 // Read in the config file, edit and write it back
 var config;
-var configPath = gitHome + '/.git/hooks/lint_config.json';
+const configPath = gitHome + '/.git/hooks/lint_config.json';
 try {
   config = require(configPath);
 } catch(e) {
@@ -43,14 +56,26 @@ config[name] = {
 };
 fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
 
+// Bail if a pre-commit hook exists that wasn't installed by this module
+const dest  = path.resolve(gitHome, '.git/hooks/pree-commit');
+try {
+  const flag = 'Installed by eslint-config-smartcar';
+  const file = fs.readFileSync(dest).toString();
+
+  // hook exists and was not installed by this module
+  if (file.indexOf(flag) < 0) {
+    console.log('Precommit hook already exists, skipping install...');
+    return;
+  }
+} catch (e) {
+  // no hook exists
+}
 
 // Copy the actual hook file
-var copyCommand = process.platform === 'win32' ? 'copy' : 'cp';
 try {
-  var source = path.resolve(cwd, 'bin/pre-commit.hook');
-  var dest  = path.resolve(gitHome, '.git/hooks/pre-commit');
-  exec([copyCommand, source, dest].join(' '));
+  const source = path.resolve(cwd, 'bin/pre-commit.hook');
+  exec(`cp ${source} ${dest}`);
 } catch (e) {
   console.error('Failed to install precommit hook');
-  console.error(e);
+  console.error(e.message);
 }
