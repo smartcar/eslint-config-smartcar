@@ -41,6 +41,18 @@ try {
   name = path.basename(projectDir);
 }
 
+// add .eslintcache to gitignore
+try {
+  const gitignorePath = path.resolve(gitHome, '.gitignore');
+  const gitignore = fs.readFileSync(gitignorePath).toString();
+
+  if (gitignore.indexOf('.eslintcache') < 0) {
+    fs.appendFile(gitignorePath, '.eslintcache');
+  }
+} catch (e) {
+  // missing gitignore shouldn't block install
+}
+
 // Read in the config file, edit and write it back
 var config;
 const configPath = gitHome + '/.git/hooks/lint_config.json';
