@@ -5,68 +5,55 @@ const path = require('path');
 const exec = require('child_process').execSync;
 const process = require('process');
 
-const cwd = process.cwd();
+const util = require('./util');
 
-var isSubModule = (/node_modules.*node_modules/).test(cwd);
-if (isSubModule) {
+const paths = {};
+
+if (util.isSubModule()) {
   return;
 }
 
-try {
-  var gitOutput = exec('git rev-parse --show-toplevel', {
-    stdio: ['ignore', null, 'ignore'],
+util.getPaths()
+  .then(function(paths) {
+
+    const package = util.safeRequire(paths.packageFile);
+    const name = package ? package.name : path.basename(paths.package);
+
+    if (package) {
+
+      if (package.eslintConfig) {
+        delete package.eslintConfig.extends;
+      }
+
+      if (Object.keys(package.eslintConfig).length === 0) {
+        delete package.eslintConfig;
+      }
+
+      fs.writeFileSync(paths.packageFile, JSON.stringify(package, null, 2));
+    }
+
+    const config = util.safeRequire(paths.hookconfig);
+
+    if (config) {
+      delete config[name];
+
+      if (Object.keys(config).length === 0) {
+        fs.unlink(paths.hookconfig);
+      } else {
+        fs.writeFileSync(paths.hookconfig, JSON.stringify(config, null, 2));
+      }
+    }
+
+    const dest  = path.resolve(gitHome, '.git/hooks/pre-commit');
+    try {
+      const flag = 'Installed by eslint-config-smartcar';
+      const file = fs.readFileSync(dest).toString();
+
+      // hook exists and was installed by this module
+      if (file.indexOf(flag) >= 0) {
+        fs.unlink(dest);
+      }
+    } catch (e) {
+      // no hook exists
+    }
   });
-} catch (e) {
-  return;
-}
-
-const gitHome = path.resolve(gitOutput.toString().replace(/[\n\r]+/, ''));
-const projectDir = path.resolve(cwd, '../../');
-const packagePath = path.resolve(projectDir, 'package.json');
-
-var name;
-try {
-  var packageFile = require(packagePath);
-
-  if (packageFile.eslintConfig) {
-    delete packageFile.eslintConfig.extends;
-  }
-
-  if (Object.keys(packageFile.eslintConfig).length === 0) {
-    delete packageFile.eslintConfig;
-  }
-
-  fs.writeFileSync(packagePath, JSON.stringify(packageFile, null, 2));
-  name = packageFile.name;
-} catch (e) {
-  name = path.basename(projectDir);
-}
-
-// Read in the config file, edit and write it back
-var config;
-const configPath = gitHome + '/.git/hooks/lint_config.json';
-try {
-  config = require(configPath);
-} catch(e) {
-  config = {};
-}
-
-delete config[name];
-if (Object.keys(config).length === 0) {
-  fs.unlink(configPath);
-} else {
-  fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
-}
-
-const dest  = path.resolve(gitHome, '.git/hooks/pre-commit');
-try {
-  const flag = 'Installed by eslint-config-smartcar';
-  const file = fs.readFileSync(dest).toString();
-
-  // hook exists and was installed by this module
-  if (file.indexOf(flag) >= 0) {
-    fs.unlink(dest);
-  }
-} catch (e) {
-  // no hook exists
-}
