@@ -13,25 +13,26 @@ if (util.isSubModule()) {
   return;
 }
 
+util.exec('npm root').then(console.log)
 util.getPaths()
   .then(function(paths) {
 
-    const package = util.safeRequire(paths.packageFile);
-    const name = package ? package.name : path.basename(paths.package);
+    const promises = [];
 
-    if (package) {
+    const pack = util.safeRequire(paths.packageFile);
+    const name = pack ? pack.name : path.basename(paths.package);
 
-      // Add in eslintconfig
-      package.eslintConfig = package.eslintConfig || {};
-      package.eslintConfig.extends = 'smartcar';
+    if (pack) {
+      pack = Object.assign({
+        scripts: {lint: 'eslint . --cache'}
+      }, pack, {
+        eslintConfig: {extends: 'smartcar'},
+      });
 
-      package.scripts = package.scripts || {};
-      package.scripts.lint = package.scripts.lint || 'eslint . --cache';
-
-      fs.writeFileSync(packagePath, JSON.stringify(package, null, 2));
+      promises.push(util.write(packPath, JSON.stringify(pack, null, 2)));
     }
 
-    // add .eslintcache to gitignore
+   // add .eslintcache to gitignore
     try {
       const gitignore = fs.readFileSync(paths.gitignore).toString();
 
@@ -41,7 +42,6 @@ util.getPaths()
     } catch (e) {
       fs.writeFile(paths.gitignore, '.eslintcache');
     }
-
     // Read in the config file, edit and write it back
     const config = util.safeRequire(paths.hookconfig) || {};
 
@@ -74,4 +74,7 @@ util.getPaths()
       console.error('Failed to install precommit hook');
       console.error(e.message);
     }
+
+    return Promise.all(promises);
   });
+

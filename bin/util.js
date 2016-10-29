@@ -32,6 +32,15 @@ util.exec = function(command) {
   });
 };
 
+util.write = function(file, data) {
+  return new Promise(function(resolve, reject) {
+    fs.writeFile(file, data, function(error) {
+      if (error) reject(error);
+      else resolve();
+    });
+  });
+};
+
 util.isSubModule = function(dir) {
   dir = dir || cwd;
   return SUB_MODULE_REGEX.test(dir);
@@ -40,7 +49,7 @@ util.isSubModule = function(dir) {
 util.safeRequire = function(file) {
   try {
     return require(file);
-  }
+  } catch (e) {}
 };
 
 util.getGitRoot = function() {
