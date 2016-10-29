@@ -11,7 +11,8 @@
   },
   "scripts": {
     "test": "ava",
-    "postinstall": "bin/install-hook.sh"
+    "postinstall": "node bin/install.js",
+    "preuninstall": "node bin/uninstall.js"
   },
   "repository": {
     "type": "git",

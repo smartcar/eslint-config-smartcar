@@ -1,9 +1,39 @@
-#!/bin/bash
+#!/usr/bin/env node
+// Installed by eslint-config-smartcar
 
-if [[ $LINT_OFF  || $lint_off ]] ; then
-  echo -e "\e[1;31m[smartcar-lint]\e[0m skipping check"
-  exit
-fi
+const process = require('process');
+const spawn = require('child_process').spawnSync;
 
-echo -e "\e[1;32m[smartcar-lint]\e[0m running check..."
-$(npm bin)/eslint .
+if (process.env.LINT_OFF || process.env.lint_off) {
+  printColored('skipping check', 31);
+  return;
+}
+
+const config = require('./lint_config');
+const projects = Object.keys(config);
+
+const success = projects.every(function(project) {
+  printColored('linting ' + project + '...', 32);
+  return lint(config[project]);
+});
+
+if (!success) printColored('lint failed!', 31);
+else printColored('lint passed!', 32);
+
+process.exit(success ? 0 : 1);
+
+function lint(config) {
+  const result = spawn(config.linter + ' . --cache --color', {
+    cwd: config.wd,
+    shell: true,
+  });
+
+  if (result.stdout.length > 0) console.log(result.stdout.toString());
+  if (result.stderr.length > 0) console.error(result.stderr.toString());
+  return result.status === 0;
+}
+
+function printColored(str, color) {
+  const prefix = '\033[' + color + 'm[smartcar-lint]\033[0m ';
+  console.log(prefix + str);
+}
