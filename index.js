@@ -2,6 +2,7 @@
 
 module.exports = {
   env: {
+    es6: true,
     node: true,
     mocha: true,
   },
@@ -185,7 +186,7 @@ module.exports = {
     'no-nested-ternary': 'error',
     'no-new-object': 'error',
     'no-plusplus': 'off',
-    'no-restricted-syntax': 'off',
+    'no-restricted-syntax': ['error', 'ClassDeclaration', 'ClassExpression'],
     'no-spaced-func': 'error',
     'no-ternary': 'off',
     'no-trailing-spaces': ['error', {skipBlankLines: false}],
@@ -216,33 +217,35 @@ module.exports = {
     'wrap-regex': 'error',
 
     // ES6
-    'arrow-body-style': 'off',
+    'arrow-body-style': ['error', 'as-needed', {requireReturnForObjectLiteral : true}],
     'arrow-parens': 'off',
-    'arrow-spacing': 'off',
-    'constructor-super': 'off',
-    'generator-star-spacing': 'off',
-    'no-class-assign': 'off',
-    'no-confusing-arrow': 'off',
-    'no-const-assign': 'off',
-    'no-dupe-class-members': 'off',
-    'no-duplicate-imports': 'off',
-    'no-new-symbol': 'off',
+    'arrow-spacing': ['error', {'before': true, 'after': true}],
+    'constructor-super': 'off', // classes are disabled
+    'generator-star-spacing': ['error', {before: false, after: true}],
+    'no-class-assign': 'off', // classes are disabled
+    'no-confusing-arrow': 'error',
+    'no-const-assign': 'error',
+    'no-dupe-class-members': 'off', // classes are disabled
+    'no-duplicate-imports': 'off', //  imports are not used
+    'no-new-symbol': 'error',
     'no-restricted-imports': 'off',
-    'no-useless-computed-key': 'off',
-    'no-useless-constructor': 'off',
-    'no-useless-rename': 'off',
+    'no-this-before-super': 'off', // classes are disabled
+    'no-useless-computed-key': 'error',
+    'no-useless-constructor': 'off', // classes are disabled
+    'no-useless-rename': 'error',
     'no-var': 'off',
-    'object-shorthand': 'off',
+    'object-shorthand': ['error', 'properties'],
     'prefer-arrow-callback': 'off',
-    'prefer-const': 'off',
-    'prefer-reflect': 'off',
-    'prefer-rest-params': 'off',
-    'prefer-spread': 'off',
+    'prefer-const': ['error', {destructuring: 'all'}],
+    'prefer-numeric-literals': 'error',
+    'prefer-rest-params': 'error',
+    'prefer-spread': 'error',
     'prefer-template': 'off',
-    'require-yield': 'off',
-    'rest-spread-spacing': 'off',
-    'sort-imports': 'off',
-    'template-curly-spacing': 'off',
-    'yield-star-spacing': 'off',
+    'require-yield': 'error',
+    'rest-spread-spacing':  ['error', 'never'],
+    'sort-imports': 'off', // imports not used
+    'symbol-description': 'error',
+    'template-curly-spacing': ['error', 'never'],
+    'yield-star-spacing': ['error', {before: false, after: true}],
   },
 };
