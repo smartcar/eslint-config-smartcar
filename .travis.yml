@@ -3,7 +3,17 @@ language:
 
 node_js:
   - stable
-  - '4'
+  - 6
+  - 4
+
+cache:
+  directories:
+    - $HOME/.npm
+    - node_modules
+
+install:
+  - npm update
+  - npm prune
 
 deploy:
   on:
