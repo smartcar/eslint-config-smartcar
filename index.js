@@ -156,9 +156,9 @@ module.exports = {
     'key-spacing': ['error', {beforeColon: false, afterColon: true, mode: 'strict'}],
     'keyword-spacing': ['error', {before: true, after: true}],
     'linebreak-style': ['error', 'unix'],
-    'lines-around-comment': ['error', {beforeBlockComment: true}],
+    'lines-around-comment': 'off',
     'max-depth': ['error', 4],
-    'max-len': ['error', {
+    'max-len': ['warn', {
       code: 80,
       comments: 100,
       ignoreUrls: true,
