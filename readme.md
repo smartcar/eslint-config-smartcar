@@ -15,21 +15,6 @@ is available [here](http://eslint.org/docs/user-guide/integrations).
 globally as well (as per [eslint#3293](https://github.com/eslint/eslint/issues/3293)).
 It is recommended to install locally and add scripts to package.json as detailed under usage below.
 
-### Pre-Commit Hook
-Installing this config in a project which is or is within a git repository will
-install a lint precommit hook. The hook will run eslint prior to every
-commit and will prevent the commit from being made if lint fails.
-
-For emergency situations the lint check can be turned off by setting the
-environment variable `LINT_OFF` to any value.
-
-Example:
-
-```bash
-LINT_OFF=true git commit
-```
-
-
 ## Usage
 
 Add some ESLint config to your `package.json`:
