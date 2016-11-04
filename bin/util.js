@@ -29,7 +29,7 @@ util.isSubModule = function(dir) {
   return SUB_MODULE_REGEX.test(dir);
 };
 
-util.findGitDirectory = function() {
+util.findRootDirectory = function() {
   return util
     .exec('git rev-parse --show-toplevel')
     .then(function(stdout) {
@@ -49,6 +49,26 @@ util.findGitDirectory = function() {
       }
 
       throw e;
+    });
+};
+
+util.gitPaths = function() {
+
+  return util
+    .findRootDirectory()
+    .then(function(root) {
+      const paths = {};
+
+      paths.root = root;
+      paths.gitignore = path.resolve(root, '.gitignore');
+      paths.hooks = {
+        manager: path.resolve(root, '.git/hooks/pre-commit'),
+        lint: path.resolve(root, '.git/hooks/pre-commit.lint.js'),
+        orig: path.resolve(root, '.git/hooks/pre-commit.orig'),
+        config: path.resolve(root, '.git/hooks/lint_config.json'),
+      };
+
+      return paths;
     });
 };
 
