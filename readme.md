@@ -115,4 +115,3 @@ MIT © [Smartcar, Inc.](https://smartcar.com)
 
 [ci-url]: https://travis-ci.org/smartcar/eslint-config-smartcar
 [ci-image]: https://img.shields.io/travis/smartcar/eslint-config-smartcar/master.svg?style=flat-square
-
