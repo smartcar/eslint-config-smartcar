@@ -1,4 +1,4 @@
-# eslint-config-smartcar [![Build Status](https://img.shields.io/travis/smartcar/eslint-config-smartcar.svg?style=flat-square)](https://travis-ci.org/smartcar/eslint-config-smartcar) [![npm](https://img.shields.io/npm/v/eslint-config-smartcar.svg?style=flat-square)](https://www.npmjs.com/package/eslint-config-smartcar)
+# eslint-config-smartcar [![Build Status][ci-image]][ci-url] [![NPM package][npm-image]][npm-url]
 
 > ESLint [shareable config](http://eslint.org/docs/developer-guide/shareable-configs.html) for [Smartcar](https://github.com/smartcar)
 
@@ -109,3 +109,9 @@ console.log("I'm an error :( ")
 ## License
 
 MIT © [Smartcar, Inc.](https://smartcar.com)
+
+[npm-url]: https://www.npmjs.com/package/eslint-config-smartcar
+[npm-image]: https://img.shields.io/npm/v/eslint-config-smartcar.svg?style=flat-square
+
+[ci-url]: https://travis-ci.org/smartcar/eslint-config-smartcar
+[ci-image]: https://img.shields.io/travis/smartcar/eslint-config-smartcar/master.svg?style=flat-square
