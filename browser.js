@@ -9,8 +9,8 @@ module.exports = {
     browser: true,
   },
   globals: {
-    "Polymer": false,
-    "page": false,
+    Polymer: false,
+    page: false,
   },
   plugins: [
     "eslint-plugin-script-tags"
