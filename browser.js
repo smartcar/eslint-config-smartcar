@@ -8,4 +8,11 @@ module.exports = {
     node: false,
     browser: true,
   },
+  globals: {
+    Polymer: false,
+    page: false,
+  },
+  plugins: [
+    "eslint-plugin-script-tags"
+  ],
 };
