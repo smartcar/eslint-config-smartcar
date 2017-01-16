@@ -42,7 +42,15 @@ To run the linter on your project simply run `npm run lint` and ESLint will repo
 back errors and warnings. You can also run `npm run lint -- --fix` to use ESLint's
 automatic fix mode, this will fix most simple style and spacing errors.
 
-Alternatively use [`smartcar/browser`](browser.js) if you're in the browser:
+
+### Frontend Linting
+
+It is suggested to use [`miyagi`](https://github.com/smartcar/miyagi) for front
+end projects as it exposes utilities for linting javascript, css and html. This
+project is meant to just codify linting rules for javascript.
+
+If you wish to use the browser rules directly with eslint you can choose to
+extend [`smartcar/browser`](browser.js).
 
 ```js
 module.exports = {
