@@ -13,23 +13,28 @@ $ npm install --save-dev eslint eslint-config-smartcar
 You may also be able to integrate ESLint into your text editor, a list of integrations
 is available [here](http://eslint.org/docs/user-guide/integrations).
 
-**Note:** If you intall eslint globally, you have to install eslint-config-smartcar
+**Note:** If you install eslint globally, you have to install eslint-config-smartcar
 globally as well (as per [eslint#3293](https://github.com/eslint/eslint/issues/3293)).
 It is recommended to install locally and add scripts to package.json as detailed under usage below.
 
 ## Usage
 
-Add some ESLint config to your `package.json`:
+Create a .eslintrc.js file in the root of your project containing the following:
+
+```js
+module.exports = {
+  extends: 'smartcar',
+};
+```
+
+Add a npm bin script for linting
 
 ```json
 {
-	"name": "my-awesome-project",
-	"scripts": {
-		"lint": "eslint ."
-	},
-	"eslintConfig": {
-		"extends": "smartcar"
-	}
+  "name": "my-awesome-project",
+  "scripts": {
+    "lint": "eslint ."
+  },
 }
 ```
 
@@ -39,24 +44,22 @@ automatic fix mode, this will fix most simple style and spacing errors.
 
 Alternatively use [`smartcar/browser`](browser.js) if you're in the browser:
 
-```json
-{
-	"extends": "smartcar/browser"
-}
+```js
+module.exports = {
+  extends: 'smartcar/browser',
+};
 ```
 
 ## Ignoring
 
 - Ignore at a project level:
-```json
-{
-	"eslintConfig": {
-		"extends": "smartcar",
-		"rules": {
-			"camelcase": "off"
-		}
-	}
-}
+```js
+module.exports = {
+  extends: 'smartcar/browser',
+  rules: {
+    camelcase: 'off',
+  },
+};
 ```
 
 - Ignoring files or folders: Create a `.eslintignore` file at the root of your project
