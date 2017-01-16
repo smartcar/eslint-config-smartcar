@@ -107,7 +107,7 @@ module.exports = {
     'vars-on-top': 'off',
     'wrap-iife': ['error', 'inside'],
     'yoda': ['error', 'never', {exceptRange: true}],
-    'strict': ['error', 'global'],
+    'strict': ['error', 'safe'],
 
     // Variables
     'init-declarations': 'off',

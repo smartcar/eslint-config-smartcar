@@ -30,5 +30,6 @@ test('browser', function(t) {
   t.true(isPlainObj(conf));
 
   var errors = runEslint('\'use strict\';\nprocess.exit();\n', conf);
-  t.is(errors[0].ruleId, 'no-process-exit');
+  t.is(errors[0].ruleId, 'strict');
+  t.is(errors[1].ruleId, 'no-process-exit');
 });
