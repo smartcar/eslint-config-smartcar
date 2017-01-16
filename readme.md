@@ -4,6 +4,8 @@
 
 ## Install
 
+*This package is intended for internal use and may not follow Semver guidelines*
+
 ```
 $ npm install --save-dev eslint eslint-config-smartcar
 ```
