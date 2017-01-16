@@ -34,8 +34,7 @@
     "test": "ava"
   },
   "peerDependencies": {
-    "eslint": ">=3.5.0",
-    "eslint-plugin-script-tags": "^0.1.4"
+    "eslint": ">=3.5.0"
   },
   "devDependencies": {
     "ava": "^0.17.0",

@@ -12,7 +12,4 @@ module.exports = {
     Polymer: false,
     page: false,
   },
-  plugins: [
-    "eslint-plugin-script-tags"
-  ],
 };
