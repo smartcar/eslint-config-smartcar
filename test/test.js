@@ -1,12 +1,12 @@
 'use strict';
 
-var test = require('ava');
-var eslint = require('eslint');
-var tempWrite = require('temp-write');
-var isPlainObj = require('is-plain-obj');
+const test = require('ava');
+const eslint = require('eslint');
+const tempWrite = require('temp-write');
+const isPlainObj = require('is-plain-obj');
 
 function runEslint(str, conf) {
-  var linter = new eslint.CLIEngine({
+  const linter = new eslint.CLIEngine({
     useEslintrc: false,
     configFile: tempWrite.sync(JSON.stringify(conf))
   });
@@ -15,20 +15,21 @@ function runEslint(str, conf) {
 }
 
 test('main', function(t) {
-  var conf = require('../');
+  const conf = require('../');
 
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  var errors = runEslint('\'use strict\';\nconsole.log("unicorn")\n', conf);
+  const errors = runEslint('\'use strict\';\nconsole.log("unicorn")\n', conf);
   t.is(errors[0].ruleId, 'no-console');
 });
 
 test('browser', function(t) {
-  var conf = require('../browser');
+  const conf = require('../browser');
 
   t.true(isPlainObj(conf));
 
-  var errors = runEslint('\'use strict\';\nprocess.exit();\n', conf);
-  t.is(errors[0].ruleId, 'no-process-exit');
+  const errors = runEslint('\'use strict\';\nprocess.exit();\n', conf);
+  t.is(errors[0].ruleId, 'strict');
+  t.is(errors[1].ruleId, 'no-process-exit');
 });

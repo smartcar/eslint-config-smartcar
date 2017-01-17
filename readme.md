@@ -4,6 +4,8 @@
 
 ## Install
 
+*This package is intended for internal use and may not follow Semver guidelines*
+
 ```
 $ npm install --save-dev eslint eslint-config-smartcar
 ```
@@ -11,23 +13,28 @@ $ npm install --save-dev eslint eslint-config-smartcar
 You may also be able to integrate ESLint into your text editor, a list of integrations
 is available [here](http://eslint.org/docs/user-guide/integrations).
 
-**Note:** If you intall eslint globally, you have to install eslint-config-smartcar
+**Note:** If you install eslint globally, you have to install eslint-config-smartcar
 globally as well (as per [eslint#3293](https://github.com/eslint/eslint/issues/3293)).
 It is recommended to install locally and add scripts to package.json as detailed under usage below.
 
 ## Usage
 
-Add some ESLint config to your `package.json`:
+Create a .eslintrc.js file in the root of your project containing the following:
+
+```js
+module.exports = {
+  extends: 'smartcar',
+};
+```
+
+Add a npm bin script for linting
 
 ```json
 {
-	"name": "my-awesome-project",
-	"scripts": {
-		"lint": "eslint ."
-	},
-	"eslintConfig": {
-		"extends": "smartcar"
-	}
+  "name": "my-awesome-project",
+  "scripts": {
+    "lint": "eslint ."
+  },
 }
 ```
 
@@ -35,26 +42,32 @@ To run the linter on your project simply run `npm run lint` and ESLint will repo
 back errors and warnings. You can also run `npm run lint -- --fix` to use ESLint's
 automatic fix mode, this will fix most simple style and spacing errors.
 
-Alternatively use [`smartcar/browser`](browser.js) if you're in the browser:
 
-```json
-{
-	"extends": "smartcar/browser"
-}
+### Frontend Linting
+
+It is suggested to use [`miyagi`](https://github.com/smartcar/miyagi) for front
+end projects as it exposes utilities for linting javascript, css and html. This
+project is meant to just codify linting rules for javascript.
+
+If you wish to use the browser rules directly with eslint you can choose to
+extend [`smartcar/browser`](browser.js).
+
+```js
+module.exports = {
+  extends: 'smartcar/browser',
+};
 ```
 
 ## Ignoring
 
 - Ignore at a project level:
-```json
-{
-	"eslintConfig": {
-		"extends": "smartcar",
-		"rules": {
-			"camelcase": "off"
-		}
-	}
-}
+```js
+module.exports = {
+  extends: 'smartcar/browser',
+  rules: {
+    camelcase: 'off',
+  },
+};
 ```
 
 - Ignoring files or folders: Create a `.eslintignore` file at the root of your project

@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-smartcar",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Shareable eslint config for smartcar",
   "main": "index.js",
   "license": "MIT",
@@ -34,8 +34,7 @@
     "test": "ava"
   },
   "peerDependencies": {
-    "eslint": ">=3.5.0",
-    "eslint-plugin-script-tags": "^0.1.4"
+    "eslint": ">=3.5.0"
   },
   "devDependencies": {
     "ava": "^0.17.0",
