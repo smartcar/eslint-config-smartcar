@@ -217,8 +217,8 @@ module.exports = {
     'wrap-regex': 'error',
 
     // ES6
-    'arrow-body-style': ['error', 'as-needed', {requireReturnForObjectLiteral : true}],
-    'arrow-parens': 'off',
+    'arrow-body-style': 'off',
+    'arrow-parens': ['error', 'as-needed', {requireForBlockBody: false}],
     'arrow-spacing': ['error', {'before': true, 'after': true}],
     'constructor-super': 'off', // classes are disabled
     'generator-star-spacing': ['error', {before: false, after: true}],
