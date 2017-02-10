@@ -12,4 +12,11 @@ module.exports = {
     Polymer: false,
     page: false,
   },
+  rules: {
+    'max-len': ['warn', {
+      code: 100,
+      comments: 100,
+      ignoreUrls: true,
+    }],
+  },
 };
