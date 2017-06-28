@@ -37,7 +37,7 @@
     "eslint": ">=3.5.0"
   },
   "devDependencies": {
-    "ava": "^0.19.0",
+    "ava": "^0.20.0",
     "eslint": "^3.5.0",
     "is-plain-obj": "^1.1.0",
     "temp-write": "^3.0.0"
