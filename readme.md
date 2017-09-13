@@ -1,5 +1,7 @@
 # eslint-config-smartcar [![Build Status][ci-image]][ci-url] [![NPM package][npm-image]][npm-url]
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/smartcar/eslint-config-smartcar.svg)](https://greenkeeper.io/)
+
 > ESLint [shareable config](http://eslint.org/docs/developer-guide/shareable-configs.html) for [Smartcar](https://github.com/smartcar)
 
 ## Install
