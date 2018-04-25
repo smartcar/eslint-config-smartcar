@@ -162,7 +162,8 @@ module.exports = {
       code: 80,
       comments: 100,
       ignoreUrls: true,
-      ignorePattern: '^\\s*.+=\\s*(require|rewire)\\s*\\('
+      ignoreRegExpLiterals: true,
+      ignorePattern: '^\\s*(.+=\\s*(require|rewire)|test)\\s*\\(',
     }],
     'max-lines': 'off',
     'max-nested-callbacks': ['error', 5],
