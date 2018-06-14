@@ -222,7 +222,7 @@ module.exports = {
     'arrow-parens': ['error', 'always'],
     'arrow-spacing': ['error', {'before': true, 'after': true}],
     'constructor-super': 'off', // classes are disabled
-    'generator-star-spacing': ['error', {before: false, after: true}],
+    'generator-star-spacing': ['error', {'before': false, 'after': false}],
     'no-class-assign': 'off', // classes are disabled
     'no-confusing-arrow': 'error',
     'no-const-assign': 'error',
