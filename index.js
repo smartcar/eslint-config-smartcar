@@ -196,7 +196,7 @@ module.exports = {
     'no-whitespace-before-property': 'error',
     'object-curly-newline': ['off', {multiline: true}],  // TODO: enable once https://github.com/eslint/eslint/issues/6488 is resolved
     'object-property-newline': ['error', {allowMultiplePropertiesPerLine: true}],
-    'object-curly-spacing': ['error', 'never', {objectsInObjects: false, arraysInObjects: false}],
+    'object-curly-spacing': ['error', 'always', {objectsInObjects: false, arraysInObjects: false}],
     'one-var': 'off',
     'one-var-declaration-per-line': 'off',
     'operator-assignment': 'off',
