@@ -7,6 +7,9 @@ module.exports = {
     mocha: true,
   },
   extends: 'eslint:recommended',
+  parserOptions: {
+    ecmaVersion: 2018,
+  },
   rules: {
     // Possible Errors
     'no-cond-assign': 'error',
