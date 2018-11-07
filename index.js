@@ -12,6 +12,7 @@ module.exports = {
   },
   rules: {
     // Possible Errors
+    'no-await-in-loop': 'error',
     'no-cond-assign': 'error',
     'no-console': 'error',
     'no-constant-condition': 'error',
@@ -92,6 +93,7 @@ module.exports = {
     'no-proto': 'error',
     'no-redeclare': ['error', {builtinGlobals: true}],
     'no-return-assign': 'error',
+    'no-return-await': 'error',
     'no-script-url': 'error',
     'no-self-assign': 'error',
     'no-self-compare': 'error',
@@ -107,6 +109,7 @@ module.exports = {
     'no-warning-comments': 'off',
     'no-with': 'error',
     'radix': ['error', 'as-needed'],
+    'require-await': 'error',
     'vars-on-top': 'off',
     'wrap-iife': ['error', 'inside'],
     'yoda': ['error', 'never', {exceptRange: true}],
