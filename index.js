@@ -7,8 +7,12 @@ module.exports = {
     mocha: true,
   },
   extends: 'eslint:recommended',
+  parserOptions: {
+    ecmaVersion: 2018,
+  },
   rules: {
     // Possible Errors
+    'no-await-in-loop': 'error',
     'no-cond-assign': 'error',
     'no-console': 'error',
     'no-constant-condition': 'error',
@@ -89,6 +93,7 @@ module.exports = {
     'no-proto': 'error',
     'no-redeclare': ['error', {builtinGlobals: true}],
     'no-return-assign': 'error',
+    'no-return-await': 'error',
     'no-script-url': 'error',
     'no-self-assign': 'error',
     'no-self-compare': 'error',
@@ -104,6 +109,7 @@ module.exports = {
     'no-warning-comments': 'off',
     'no-with': 'error',
     'radix': ['error', 'as-needed'],
+    'require-await': 'error',
     'vars-on-top': 'off',
     'wrap-iife': ['error', 'inside'],
     'yoda': ['error', 'never', {exceptRange: true}],
@@ -187,7 +193,7 @@ module.exports = {
     'no-nested-ternary': 'error',
     'no-new-object': 'error',
     'no-plusplus': 'off',
-    'no-restricted-syntax': ['error', 'ClassDeclaration', 'ClassExpression'],
+    'no-restricted-syntax': 'off',
     'no-spaced-func': 'error',
     'no-ternary': 'off',
     'no-trailing-spaces': ['error', {skipBlankLines: false}],
@@ -221,18 +227,18 @@ module.exports = {
     'arrow-body-style': 'off',
     'arrow-parens': ['error', 'always'],
     'arrow-spacing': ['error', {'before': true, 'after': true}],
-    'constructor-super': 'off', // classes are disabled
+    'constructor-super': 'error',
     'generator-star-spacing': ['error', {before: false, after: true}],
-    'no-class-assign': 'off', // classes are disabled
+    'no-class-assign': 'error',
     'no-confusing-arrow': 'error',
     'no-const-assign': 'error',
-    'no-dupe-class-members': 'off', // classes are disabled
+    'no-dupe-class-members': 'error',
     'no-duplicate-imports': 'off', //  imports are not used
     'no-new-symbol': 'error',
     'no-restricted-imports': 'off',
-    'no-this-before-super': 'off', // classes are disabled
+    'no-this-before-super': 'error',
     'no-useless-computed-key': 'error',
-    'no-useless-constructor': 'off', // classes are disabled
+    'no-useless-constructor': 'error',
     'no-useless-rename': 'error',
     'no-var': 'off',
     'object-shorthand': ['error', 'properties'],

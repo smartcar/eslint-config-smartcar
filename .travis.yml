@@ -2,24 +2,27 @@ language:
   - node_js
 
 node_js:
-  - stable
-  - 8
-  - 6
-  - 4
+  - '10'
+  - '8'
+  - '6'
 
 cache:
   directories:
     - $HOME/.npm
-    - node_modules
+
+if: tag IS blank # do not build tags
+
+before_install:
+  - dpkg --compare-versions `npm -v` ge 6.0 || npm i -g npm@latest
 
 install:
-  - npm update --save false
-  - npm prune
+  - npm ci
 
-deploy:
-  on:
-    branch: master
-    node: stable
-  provider: npm
-  email: hello@smartcar.com
-  api_key: $NPM_API_TOKEN
+script:
+  - npm test
+
+jobs:
+  include:
+    - stage: publish
+      node_js: 8
+      script: npx semantic-release
