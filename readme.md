@@ -126,5 +126,5 @@ MIT © [Smartcar, Inc.](https://smartcar.com)
 [npm-url]: https://www.npmjs.com/package/eslint-config-smartcar
 [npm-image]: https://img.shields.io/npm/v/eslint-config-smartcar.svg?style=flat-square
 
-[ci-url]: https://travis-ci.org/smartcar/eslint-config-smartcar
-[ci-image]: https://img.shields.io/travis/smartcar/eslint-config-smartcar/master.svg?style=flat-square
+[ci-url]: https://travis-ci.com/smartcar/eslint-config-smartcar
+[ci-image]: https://img.shields.io/travis/com/smartcar/eslint-config-smartcar/master.svg?style=flat-square
