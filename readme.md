@@ -39,7 +39,7 @@ Add a npm bin script for linting
 ```
 
 To run the linter on your project simply run `npm run lint` and ESLint will report
-back errors and warnings. You can also run `npm run lint -- --fix` to use ESLint's
+back errors and warnings. You can also run `npm run lint --fix` to use ESLint's
 automatic fix mode, this will fix most simple style and spacing errors.
 
 
