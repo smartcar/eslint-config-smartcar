@@ -1,6 +1,6 @@
 'use strict';
 
-const rules = require('./.eslintrc.json');
+const {rules} = require('./.eslintrc.json');
 
 module.exports = {
   env: {
