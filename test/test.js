@@ -5,6 +5,8 @@ const eslint = require('eslint');
 const tempWrite = require('temp-write');
 const isPlainObj = require('is-plain-obj');
 
+const config = require('../');
+
 function runEslint(str, conf) {
   const linter = new eslint.CLIEngine({
     useEslintrc: false,
@@ -15,11 +17,9 @@ function runEslint(str, conf) {
 }
 
 test('main', function(t) {
-  const conf = require('../');
+  t.true(isPlainObj(config));
+  t.true(isPlainObj(config.rules));
 
-  t.true(isPlainObj(conf));
-  t.true(isPlainObj(conf.rules));
-
-  const errors = runEslint('\'use strict\';\nconsole.log("unicorn")\n', conf);
+  const errors = runEslint('\'use strict\';\nconsole.log("unicorn")\n', config);
   t.is(errors[0].ruleId, 'no-console');
 });
