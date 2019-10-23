@@ -20,7 +20,9 @@ install:
 jobs:
   include:
     - stage: test
-      script: npm test
+      script:
+        - npm test
+        - npm run lint
     - stage: publish
       node_js: '12'
       script: semantic-release
