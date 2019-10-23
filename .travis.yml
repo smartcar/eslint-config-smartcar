@@ -2,9 +2,7 @@ language:
   - node_js
 
 node_js:
-  - '10'
-  - '8'
-  - '6'
+  - '12'
 
 cache:
   directories:
@@ -16,9 +14,6 @@ notifications:
   slack:
     secure: 'cSSAYBBXcUtz0zchX4XSw7avs2+eU4GIYnGgHzOZn7TOhnjc8/wReJ7SkztM/vn7HDilZcKMu1LckNixgscfGa5V7ZN+bhc+flHxrhhdAYjJT+8BSfFODeTRwW+/02aBdZKiDXFv+9/xZQQwVltMUL5NAmozdFVjG09YVhnqwFqxP5xreqSejqwni8vPByxClIb2YNfqeP0XbkvBK/Ce/cHA/jr851NmGM88cRrOwyCUirHY6q1ZdVLboYIcbeNGhKfan14EgONmwxDWS9SoYGYRNvf0sJjTHbVxxoPj0mg6aFSugboEOhtAbrRXZK4yKy6jq+MwEkhsTpj5Weee4tQ7qDIOmwW6nqka9E5jZEiF8q29sLkpjd+ZUGfJQEGtLXUMpNJmFjCc1EaOC73PuQa9lxjWBjqqzxysgtgwu93/zi32nvYCtOalNmYtwURwg7aR6PfgQsB6xLeUbWU/qO453MZ9/kQpJRP5Na6mZH/OZv07U0qNfE9PTxwMQws8wOLhUvKQkNPkz5uTMoJJvXd1khxyonj450s+JwcqA1VYoEpEjUzJDIgY3XQfia2AOBkUGeoVf4JNVva6x8GCWnN0I1UrNn4DCK/bHz+EojkLj/jizPPUOBkGcpnk+NE1BhL+HcWCZE/Gf2BUl54YMrXV1uZ361lw7qDLLrgAeb4='
 
-before_install:
-  - dpkg --compare-versions `npm -v` ge 6.0 || npm i -g npm@latest
-
 install:
   - npm ci
 
@@ -27,5 +22,5 @@ jobs:
     - stage: test
       script: npm test
     - stage: publish
-      node_js: '8'
+      node_js: '12'
       script: semantic-release
