@@ -2,12 +2,14 @@
 
 module.exports = {
   env: {
-    es6: true,
     node: true,
+    es6: true,
+    es2017: true,
+    es2020: true,
   },
   extends: 'eslint:recommended',
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
   },
   rules: {
     // Possible Errors
