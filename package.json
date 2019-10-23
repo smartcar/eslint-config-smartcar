@@ -32,16 +32,20 @@
   },
   "scripts": {
     "lint": "eslint . --cache",
-    "test": "ava"
+    "test": "ava",
+    "posttest": "npm run -s check-rules",
+    "check-rules": "eslint --print-config index.js | eslint-config-prettier-check"
   },
   "peerDependencies": {
     "eslint": ">=6.6.0"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^6.5.0"
   },
   "devDependencies": {
     "ava": "^2.4.0",
     "eslint": "^6.5.1",
     "is-plain-obj": "^2.0.0",
-    "semantic-release": "^15.13.27",
-    "temp-write": "^4.0.0"
+    "semantic-release": "^15.13.27"
   }
 }
