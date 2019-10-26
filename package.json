@@ -24,7 +24,6 @@
     "style"
   ],
   "files": [
-    "browser.js",
     "index.js"
   ],
   "engines": {
