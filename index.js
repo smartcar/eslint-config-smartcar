@@ -45,7 +45,7 @@ module.exports = {
     'no-irregular-whitespace': 'error',
     'no-misleading-character-class': 'error',
     'no-obj-calls': 'error',
-    'no-prototype-builtins': 'off',
+    'no-prototype-builtins': 'error',
     'no-regex-spaces': 'error',
     'no-sparse-arrays': 'error',
     'no-template-curly-in-string': 'error',
@@ -59,8 +59,8 @@ module.exports = {
 
     // Best Practices
     'accessor-pairs': 'error',
-    'array-callback-return': 'warn',
-    'block-scoped-var': 'off',
+    'array-callback-return': 'error',
+    'block-scoped-var': 'error',
     'class-methods-use-this': 'error',
     'complexity': 'error',
     'consistent-return': 'off',
@@ -74,9 +74,9 @@ module.exports = {
     'max-classes-per-file': 'off',
     'no-alert': 'error',
     'no-caller': 'error',
-    'no-case-declarations': 'off', // ES6 rule
+    'no-case-declarations': 'error',
     'no-div-regex': 'error',
-    'no-else-return': 'off',
+    'no-else-return': 'error',
     'no-empty-function': 'error',
     'no-empty-pattern': 'error',
     'no-eq-null': 'error',
@@ -160,7 +160,7 @@ module.exports = {
     'no-process-env': 'error',
     'no-process-exit': 'error',
     'no-restricted-modules': 'off',
-    'no-sync': 'off',
+    'no-sync': ['error', { allowAtRootLevel: true }],
 
     // Style
     'array-bracket-newline': PRETTIER,
@@ -174,7 +174,7 @@ module.exports = {
     'comma-spacing': PRETTIER,
     'comma-style': PRETTIER,
     'computed-property-spacing': PRETTIER,
-    'consistent-this': 'off',
+    'consistent-this': ['error', 'self'],
     'eol-last': PRETTIER,
     'func-call-spacing': PRETTIER,
     'func-name-matching': 'error',
@@ -200,11 +200,13 @@ module.exports = {
     ],
     'max-depth': ['error', 4],
     'max-len': [
-      'warn',
+      'error',
       {
         code: 80,
-        comments: 100,
+        comments: 90,
         ignoreUrls: true,
+        ignoreStrings: true,
+        ignoreTemplateLiterals: true,
         ignoreRegExpLiterals: true,
         ignorePattern: '^\\s*(.+=\\s*(require|rewire)|test)\\s*\\(',
       },
@@ -246,7 +248,7 @@ module.exports = {
     'object-curly-spacing': PRETTIER,
     'one-var': 'off',
     'one-var-declaration-per-line': PRETTIER,
-    'operator-assignment': 'off',
+    'operator-assignment': 'error',
     'operator-linebreak': PRETTIER,
     'padded-blocks': PRETTIER,
     'padding-line-between-statements': [
@@ -286,7 +288,7 @@ module.exports = {
     'no-confusing-arrow': ['error', { allowParens: false }],
     'no-const-assign': 'error',
     'no-dupe-class-members': 'error',
-    'no-duplicate-imports': 'off', //  imports are not used
+    'no-duplicate-imports': ['error', { includeExports: true }],
     'no-new-symbol': 'error',
     'no-restricted-imports': 'off',
     'no-this-before-super': 'error',
