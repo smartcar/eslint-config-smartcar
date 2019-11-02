@@ -38,7 +38,6 @@ module.exports = {
     'no-inner-declarations': ['error', 'functions'],
     'no-invalid-regexp': 'error',
     'no-irregular-whitespace': 'error',
-    'no-negated-in-lhs': 'error',
     'no-obj-calls': 'error',
     'no-prototype-builtins': 'off',
     'no-regex-spaces': 'error',
@@ -46,8 +45,8 @@ module.exports = {
     'no-unexpected-multiline': 'error',
     'no-unreachable': 'error',
     'no-unsafe-finally': 'error',
+    'no-unsafe-negation': ['error', { enforceForOrderingRelations: true }],
     'use-isnan': 'error',
-    'valid-jsdoc': 'off', // TDOO this rule needs to be spec'd out more
     'valid-typeof': 'error',
 
     // Best Practices
@@ -76,6 +75,7 @@ module.exports = {
     'no-extra-label': 'error',
     'no-fallthrough': 'error',
     'no-floating-decimal': PRETTIER,
+    'no-global-assign': 'error',
     'no-implicit-coercion': 'error',
     'no-implicit-globals': 'error',
     'no-implied-eval': 'error',
@@ -87,7 +87,6 @@ module.exports = {
     'no-magic-numbers': 'off',
     'no-multi-spaces': PRETTIER,
     'no-multi-str': 'error',
-    'no-native-reassign': 'error',
     'no-new': 'error',
     'no-new-func': 'error',
     'no-new-wrappers': 'error',
@@ -121,7 +120,6 @@ module.exports = {
 
     // Variables
     'init-declarations': 'off',
-    'no-catch-shadow': 'off', // < IE8 rule
     'no-delete-var': 'error',
     'no-label-var': 'error',
     'no-restricted-globals': 'error',
@@ -156,6 +154,7 @@ module.exports = {
     'computed-property-spacing': PRETTIER,
     'consistent-this': 'off',
     'eol-last': PRETTIER,
+    'func-call-spacing': PRETTIER,
     'func-names': 'off',
     'func-style': 'off',
     'id-blacklist': 'off',
@@ -185,8 +184,6 @@ module.exports = {
     'max-statements-per-line': ['error', { max: 2 }],
     'new-cap': ['error', { newIsCap: true, capIsNew: false }],
     'new-parens': PRETTIER,
-    'newline-after-var': 'off',
-    'newline-before-return': 'off',
     'newline-per-chained-call': PRETTIER,
     'no-array-constructor': 'error',
     'no-bitwise': 'warn',
@@ -201,7 +198,6 @@ module.exports = {
     'no-new-object': 'error',
     'no-plusplus': 'off',
     'no-restricted-syntax': 'off',
-    'no-spaced-func': PRETTIER,
     'no-ternary': 'off',
     'no-trailing-spaces': PRETTIER,
     'no-underscore-dangle': 'off',
@@ -217,7 +213,6 @@ module.exports = {
     'padded-blocks': PRETTIER,
     'quote-props': PRETTIER,
     'quotes': ['error', 'single', { avoidEscape: true }],
-    'require-jsdoc': 'off',
     'semi': PRETTIER,
     'semi-spacing': PRETTIER,
     'sort-vars': 'off',
