@@ -1,10 +1,12 @@
 'use strict';
 
+const allEslintRules = require('all-eslint-rules');
 const eslint = require('eslint');
 const eslintConfigPrettier = require('eslint-config-prettier');
 const isPlainObj = require('is-plain-obj');
 const test = require('ava');
 const {join} = require('path');
+const difference = require('lodash.difference');
 
 const config = require('../');
 
@@ -39,4 +41,10 @@ test('prettier rules', (t) => {
       `${key} should not be marked as off because of prettier`
     );
   });
+});
+
+test('no extra rules are defined', (t) => {
+  const available = allEslintRules().sort();
+  const defined = Object.keys(config.rules).sort();
+  t.deepEqual(difference(defined, available), []);
 });
