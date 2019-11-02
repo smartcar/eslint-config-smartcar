@@ -23,7 +23,8 @@ test('integration', (t) => {
   const code = '\'use strict\';\nconsole.log("unicorn")\n';
   const errors = linter.executeOnText(code).results[0].messages;
 
-  t.is(errors[0].ruleId, 'no-console');
+  t.is(errors[0].ruleId, 'padding-line-between-statements');
+  t.is(errors[1].ruleId, 'no-console');
 });
 
 test('prettier rules', (t) => {
@@ -41,6 +42,12 @@ test('prettier rules', (t) => {
       `${key} should not be marked as off because of prettier`
     );
   });
+});
+
+test('all available rules are defined', (t) => {
+  const available = allEslintRules();
+  const defined = Object.keys(config.rules);
+  t.deepEqual(difference(available, defined), []);
 });
 
 test('no extra rules are defined', (t) => {
