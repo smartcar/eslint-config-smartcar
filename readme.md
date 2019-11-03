@@ -7,7 +7,7 @@
 *This package is intended for internal use and may not follow Semver guidelines*
 
 ```
-$ npm install --save-dev eslint eslint-config-smartcar
+$ npm install --save-dev eslint @smartcar/eslint-config-smartcar
 ```
 
 You may also be able to integrate ESLint into your text editor, a list of integrations
