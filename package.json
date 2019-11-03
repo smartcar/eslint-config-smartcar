@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-smartcar",
+  "name": "@smartcar/eslint-config",
   "version": "0.0.0-semantic-release",
   "description": "Shareable eslint config for smartcar",
   "main": "index.js",
