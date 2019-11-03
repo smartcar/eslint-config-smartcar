@@ -34,12 +34,41 @@ module.exports = {
     'array-func',
     'eslint-comments',
     'import',
+    'jsdoc',
     'no-use-extend-native',
     'node',
     'promise',
     'sonarjs',
     'unicorn',
   ],
+  settings: {
+    jsdoc: {
+      tagNamePreference: {
+        access: {
+          message:
+            'Prefer using @package, @private, @protected, or @public over @access, they are easier to read.',
+        },
+
+        // override defaults
+        augments: 'extends',
+        fires: 'emits',
+      },
+      preferredTypes: {
+        // standard any type
+        '*': 'any',
+        'Any': 'any',
+
+        // use A<B> over A.<B>
+        '.': '<>',
+
+        // Use A[] over Array<A>
+        'Array<>': '[]',
+      },
+      overrideReplacesDoc: true,
+      augmentsExtendsReplacesDocs: true,
+      implementsReplacesDocs: true,
+    },
+  },
   rules: {
     // Possible Errors
     'for-direction': 'error',
@@ -457,6 +486,57 @@ module.exports = {
     'import/no-anonymous-default-export': ES_MODULES,
     'import/group-exports': 'error',
     'import/dynamic-import-chunkname': 'off',
+
+    /*
+     * eslint-plugin-jsdoc
+     *
+     * @see https://github.com/gajus/eslint-plugin-jsdoc
+     */
+    'jsdoc/check-access': 'error',
+    'jsdoc/check-alignment': 'error',
+    'jsdoc/check-examples': 'off', // too strict
+    'jsdoc/check-indentation': 'off', // too strict, messes with lists
+    'jsdoc/check-param-names': [
+      'error',
+      { allowExtraTrailingParamDocs: false },
+    ],
+    'jsdoc/check-syntax': 'error',
+    'jsdoc/check-tag-names': 'error',
+    'jsdoc/check-types': [
+      'error',
+      { noDefaults: false, unifyParentAndChildTypeChecks: true },
+    ],
+    'jsdoc/check-values': 'off',
+    'jsdoc/empty-tags': 'error',
+    'jsdoc/implements-on-classes': 'error',
+    'jsdoc/match-description': 'off',
+    'jsdoc/newline-after-description': ['error', 'always'],
+    'jsdoc/no-types': 'off', // only needed if using TS
+    'jsdoc/no-undefined-types': 'error',
+    'jsdoc/require-description-complete-sentence': 'off', // too strict
+    'jsdoc/require-description': 'off', // too strict
+    'jsdoc/require-example': 'off', // too strict
+    'jsdoc/require-hyphen-before-param-description': ['error', 'always'],
+    'jsdoc/require-jsdoc': 'off', // too strict
+    'jsdoc/require-param-description': 'off', // prevent things like @param {number} size - the size
+    'jsdoc/require-param-name': 'error',
+    'jsdoc/require-param-type': 'error',
+    'jsdoc/require-param': 'off',
+    'jsdoc/require-returns-check': 'error',
+    'jsdoc/require-returns-description': 'off', // not needed when function is clear enough
+    'jsdoc/require-returns-type': 'error',
+    'jsdoc/require-returns': [
+      'error',
+      {
+        exemptedBy: ['type'],
+        forceRequireReturn: false,
+        forceReturnsWithAsync: false,
+      },
+    ],
+    'jsdoc/valid-types': [
+      'error',
+      { allowEmptyNamepaths: true, checkSeesForNamepaths: false },
+    ],
 
     /**
      * eslint-plugin-no-use-extend-native
