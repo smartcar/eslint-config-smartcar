@@ -1,4 +1,4 @@
-# eslint-config-smartcar [![Build Status][ci-image]][ci-url] [![NPM package][npm-image]][npm-url]
+# @smartcar/eslint-config [![Build Status][ci-image]][ci-url] [![NPM package][npm-image]][npm-url]
 
 > ESLint [shareable config](http://eslint.org/docs/developer-guide/shareable-configs.html) for [Smartcar](https://github.com/smartcar)
 
@@ -7,13 +7,13 @@
 *This package is intended for internal use and may not follow Semver guidelines*
 
 ```
-$ npm install --save-dev eslint @smartcar/eslint-config-smartcar
+$ npm install --save-dev eslint @smartcar/eslint-config
 ```
 
 You may also be able to integrate ESLint into your text editor, a list of integrations
 is available [here](http://eslint.org/docs/user-guide/integrations).
 
-**Note:** If you install eslint globally, you have to install eslint-config-smartcar
+**Note:** If you install eslint globally, you have to install @smartcar/eslint-config
 globally as well (as per [eslint#3293](https://github.com/eslint/eslint/issues/3293)).
 It is recommended to install locally and add scripts to package.json as detailed under usage below.
 
@@ -23,7 +23,7 @@ Create a .eslintrc.js file in the root of your project containing the following:
 
 ```js
 module.exports = {
-  extends: 'smartcar',
+  extends: '@smartcar',
 };
 ```
 
@@ -48,7 +48,7 @@ automatic fix mode, this will fix most simple style and spacing errors.
 - Ignore at a project level:
 ```js
 module.exports = {
-  extends: 'smartcar',
+  extends: '@smartcar',
   rules: {
     camelcase: 'off',
   },
