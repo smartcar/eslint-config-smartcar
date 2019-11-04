@@ -17,6 +17,14 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2020,
   },
+  overrides: [
+    {
+      files: ['test/**'],
+      rules: {
+        'global-require': 'off',
+      },
+    },
+  ],
   rules: {
     // Possible Errors
     'for-direction': 'error',
