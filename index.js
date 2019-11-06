@@ -62,7 +62,9 @@ module.exports = {
     'no-unsafe-finally': 'error',
     'no-unsafe-negation': ['error', { enforceForOrderingRelations: true }],
     'use-isnan': 'error',
-    'require-atomic-updates': 'warn', // see: https://github.com/eslint/eslint/issues/11899
+    // TODO enabled once the following issue resolved
+    // https://github.com/eslint/eslint/issues/11899
+    'require-atomic-updates': 'off',
     'valid-typeof': 'error',
 
     // Best Practices
