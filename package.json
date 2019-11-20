@@ -40,7 +40,8 @@
     "eslint": ">=6.6.0"
   },
   "dependencies": {
-    "eslint-config-prettier": "^6.9.0"
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.19.1"
   },
   "devDependencies": {
     "all-eslint-rules": "^6.0.0",

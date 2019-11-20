@@ -1,14 +1,15 @@
 'use strict';
 
+const { join } = require('path');
+
 const allEslintRules = require('all-eslint-rules');
 const eslint = require('eslint');
 const eslintConfigPrettier = require('eslint-config-prettier');
 const isPlainObj = require('is-plain-obj');
 const test = require('ava');
-const {join} = require('path');
 const difference = require('lodash.difference');
 
-const config = require('../');
+const config = require('..');
 
 test('type check', (t) => {
   t.true(isPlainObj(config));
