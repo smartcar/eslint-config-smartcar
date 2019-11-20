@@ -6,6 +6,9 @@
 // that prettier actually conflicts are marked as "prettier".
 const PRETTIER = 0;
 
+// Rules that should be evaluated once we enable modules
+const ES_MODULES = 'off';
+
 module.exports = {
   env: {
     node: true,
@@ -25,6 +28,7 @@ module.exports = {
       },
     },
   ],
+  plugins: ['import'],
   rules: {
     // Possible Errors
     'for-direction': 'error',
@@ -317,9 +321,82 @@ module.exports = {
     'prefer-template': 'off',
     'require-yield': 'error',
     'rest-spread-spacing': PRETTIER,
-    'sort-imports': 'off', // imports not used
+    'sort-imports': ES_MODULES,
     'symbol-description': 'error',
     'template-curly-spacing': PRETTIER,
     'yield-star-spacing': PRETTIER,
+
+    //
+    // PLUGINS
+    //
+
+    /**
+     * eslint-plugin-import
+     *
+     * @see https://github.com/benmosher/eslint-plugin-import
+     */
+    // Static Analysis
+    'import/no-unresolved': ['error', { commonjs: true }],
+    'import/named': ES_MODULES,
+    'import/default': ES_MODULES,
+    'import/namespace': ES_MODULES,
+    'import/no-restricted-paths': 'off',
+    'import/no-absolute-path': ['error', { commonjs: true }],
+    'import/no-dynamic-require': 'off',
+    'import/no-internal-modules': 'off',
+    'import/no-webpack-loader-syntax': 'error',
+    'import/no-self-import': 'error',
+    'import/no-cycle': 'off', // computationally expensive
+    'import/no-useless-path-segments': 'error', // only works for es modules
+    'import/no-relative-parent-imports': 'off', // breaks the shared "lib" pattern
+    'import/no-unused-modules': ES_MODULES,
+
+    // Helpful Warnings
+    'import/export': 'error', // only works for es modules
+    'import/no-named-as-default': 'error', // only works for es modules
+    'import/no-named-as-default-member': 'error', // only works for es modules
+    'import/no-deprecated': 'warn', // only works for es modules
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        // false = not allowed
+        devDependencies: ['test/**/*'],
+        optionalDependencies: false,
+        peerDependencies: false,
+        // bundledDependencies: false,
+      },
+    ],
+    'import/no-mutable-exports': 'error', // only works for es modules
+
+    // Module Systems
+    'import/unambiguous': 'error',
+    'import/no-commonjs': 'off',
+    'import/no-amd': 'error',
+    'import/no-nodejs-modules': 'off',
+
+    // Style
+    'import/first': 'error', // only works for es modules
+    'import/exports-last': ES_MODULES,
+    'import/no-duplicates': 'off', // use eslint's no-duplicate-imports
+    'import/no-namespace': ES_MODULES,
+    'import/extensions': ['error', 'never', { json: 'always' }], // only works for es modules
+    'import/order': [
+      // TODO
+      'off',
+      {
+        'newlines-between': 'always',
+        'groups': [],
+      },
+    ],
+    'import/newline-after-import': 'off', // use eslint's padding-line-between-statements
+    'import/prefer-default-export': ES_MODULES,
+    'import/max-dependencies': 'off',
+    'import/no-unassigned-import': 'error',
+    'import/no-named-default': 'error',
+    'import/no-default-export': ES_MODULES,
+    'import/no-named-export': ES_MODULES,
+    'import/no-anonymous-default-export': ES_MODULES,
+    'import/group-exports': 'error',
+    'import/dynamic-import-chunkname': 'off',
   },
 };
