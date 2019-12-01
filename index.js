@@ -28,7 +28,7 @@ module.exports = {
       },
     },
   ],
-  plugins: ['import'],
+  plugins: ['import', 'node'],
   rules: {
     // Possible Errors
     'for-direction': 'error',
@@ -341,7 +341,7 @@ module.exports = {
      * @see https://github.com/benmosher/eslint-plugin-import
      */
     // Static Analysis
-    'import/no-unresolved': ['error', { commonjs: true }],
+    'import/no-unresolved': 'off', // use `node/no-missing-*`
     'import/named': ES_MODULES,
     'import/default': ES_MODULES,
     'import/namespace': ES_MODULES,
@@ -387,7 +387,7 @@ module.exports = {
     'import/exports-last': ES_MODULES,
     'import/no-duplicates': 'off', // use eslint's no-duplicate-imports
     'import/no-namespace': ES_MODULES,
-    'import/extensions': ['error', 'never', { json: 'always' }], // only works for es modules
+    'import/extensions': 'off', // use  node/file-extension-in-import`
     'import/order': [
       'error',
       {
@@ -418,5 +418,44 @@ module.exports = {
     'import/no-anonymous-default-export': ES_MODULES,
     'import/group-exports': 'error',
     'import/dynamic-import-chunkname': 'off',
+
+    /**
+     * eslint-plugin-node
+     *
+     * @see https://github.com/mysticatea/eslint-plugin-node
+     */
+    // Possible Errors
+    'node/no-callback-literal': 'error',
+    'node/no-exports-assign': 'error',
+    'node/no-extraneous-import': 'off', // use `import/no-extraneous-dependencies`
+    'node/no-extraneous-require': 'off', // use `import/no-extraneous-dependencies`
+    'node/no-missing-import': 'error',
+    'node/no-missing-require': 'error',
+    'node/no-unpublished-bin': 'error',
+    'node/no-unpublished-import': 'error',
+    'node/no-unpublished-require': 'error',
+    'node/no-unsupported-features/es-builtins': 'error',
+    'node/no-unsupported-features/es-syntax': 'error',
+    'node/no-unsupported-features/node-builtins': 'error',
+    'node/process-exit-as-throw': 'error',
+    // TODO [2020-03-01]: enable once the following issue is resolved:
+    // https://github.com/mysticatea/eslint-plugin-node/issues/96
+    'node/shebang': 'off',
+
+    // Best Practices
+    'node/no-deprecated-api': 'error',
+
+    // Stylistic Issues
+    'node/exports-style': ['error', 'module.exports'],
+    'node/file-extension-in-import': ['error', 'always', { '.js': 'never' }],
+    'node/prefer-global/buffer': 'error',
+    'node/prefer-global/console': 'error',
+    'node/prefer-global/process': 'error',
+    'node/prefer-global/text-decoder': 'error',
+    'node/prefer-global/text-encoder': 'error',
+    'node/prefer-global/url-search-params': 'error',
+    'node/prefer-global/url': 'error',
+    'node/prefer-promises/dns': 'error',
+    'node/prefer-promises/fs': 'error',
   },
 };
