@@ -122,7 +122,8 @@ module.exports = {
     'no-redeclare': ['error', { builtinGlobals: true }],
     'no-restricted-properties': 'off',
     'no-return-assign': 'error',
-    'no-return-await': 'error',
+    // See (https://github.com/eslint/eslint/issues/12246) for rationale
+    'no-return-await': 'off',
     'no-script-url': 'error',
     'no-self-assign': 'error',
     'no-self-compare': 'error',
