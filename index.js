@@ -16,7 +16,7 @@ module.exports = {
     es2017: true,
     es2020: true,
   },
-  extends: ['eslint:recommended', 'prettier'],
+  extends: ['eslint:recommended', 'prettier', 'prettier/unicorn'],
   parserOptions: {
     ecmaVersion: 2020,
   },
@@ -28,7 +28,7 @@ module.exports = {
       },
     },
   ],
-  plugins: ['import', 'node'],
+  plugins: ['import', 'node', 'unicorn'],
   rules: {
     // Possible Errors
     'for-direction': 'error',
@@ -68,7 +68,6 @@ module.exports = {
     'no-unsafe-finally': 'error',
     'no-unsafe-negation': ['error', { enforceForOrderingRelations: true }],
     'use-isnan': 'error',
-    // TODO enabled once the following issue resolved
     // https://github.com/eslint/eslint/issues/11899
     'require-atomic-updates': 'off',
     'valid-typeof': 'error',
@@ -177,7 +176,7 @@ module.exports = {
     'no-new-require': 'error',
     'no-path-concat': 'error',
     'no-process-env': 'error',
-    'no-process-exit': 'error',
+    'no-process-exit': 'off', // use `unicorn/no-process-exit`
     'no-restricted-modules': 'off',
     'no-sync': ['error', { allowAtRootLevel: true }],
 
@@ -457,5 +456,60 @@ module.exports = {
     'node/prefer-global/url': 'error',
     'node/prefer-promises/dns': 'error',
     'node/prefer-promises/fs': 'error',
+
+    /**
+     * eslint-plugin-unicorn
+     *
+     * @see https://github.com/sindresorhus/eslint-plugin-unicorn
+     */
+    'unicorn/catch-error-name': 'off',
+    'unicorn/consistent-function-scoping': 'off', // too opinionated
+    'unicorn/custom-error-definition': 'error',
+    'unicorn/error-message': 'error',
+    'unicorn/escape-case': 'error',
+    'unicorn/expiring-todo-comments': [
+      'error',
+      { allowWarningComments: false },
+    ],
+    'unicorn/explicit-length-check': ['error', { 'non-zero': 'greater-than' }],
+    'unicorn/filename-case': 'error',
+    'unicorn/import-index': 'off', // use `import/no-useless-path-segments`
+    'unicorn/new-for-builtins': 'error',
+    'unicorn/no-abusive-eslint-disable': 'error',
+    'unicorn/no-array-instanceof': 'error',
+    'unicorn/no-console-spaces': 'error',
+    'unicorn/no-fn-reference-in-iterator': 'error',
+    'unicorn/no-for-loop': 'error',
+    'unicorn/no-hex-escape': 'error',
+    'unicorn/no-keyword-prefix': 'off',
+    'unicorn/no-nested-ternary': PRETTIER,
+    'unicorn/no-new-buffer': 'off', // use `no-buffer-constructor`
+    'unicorn/no-process-exit': 'error',
+    'unicorn/no-unreadable-array-destructuring': 'error',
+    'unicorn/no-unsafe-regex': 'error',
+    'unicorn/no-unused-properties': 'error',
+    'unicorn/no-zero-fractions': 'error',
+    'unicorn/number-literal-case': PRETTIER,
+    'unicorn/prefer-add-event-listener': 'error',
+    'unicorn/prefer-dataset': 'error',
+    'unicorn/prefer-event-key': 'error',
+    'unicorn/prefer-exponentiation-operator': 'off', // use `prefer-exponentiation-operator`
+    'unicorn/prefer-flat-map': 'error',
+    'unicorn/prefer-includes': 'error',
+    'unicorn/prefer-modern-dom-apis': 'error',
+    'unicorn/prefer-negative-index': 'error',
+    'unicorn/prefer-node-append': 'error',
+    'unicorn/prefer-node-remove': 'error',
+    'unicorn/prefer-query-selector': 'error',
+    'unicorn/prefer-reflect-apply': 'error',
+    'unicorn/prefer-spread': 'off', // Array.from is more clear than spread
+    'unicorn/prefer-starts-ends-with': 'error',
+    'unicorn/prefer-string-slice': 'error',
+    'unicorn/prefer-text-content': 'error',
+    'unicorn/prefer-trim-start-end': 'error',
+    'unicorn/prefer-type-error': 'error',
+    'unicorn/prevent-abbreviations': 'off',
+    'unicorn/regex-shorthand': 'error',
+    'unicorn/throw-new-error': 'error',
   },
 };
