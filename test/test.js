@@ -4,10 +4,14 @@ const { join } = require('path');
 
 const allEslintRules = require('all-eslint-rules');
 const eslint = require('eslint');
-const eslintConfigPrettier = require('eslint-config-prettier');
 const isPlainObj = require('is-plain-obj');
 const test = require('ava');
 const difference = require('lodash.difference');
+
+const prettierRules = {
+  ...require('eslint-config-prettier').rules,
+  ...require('eslint-config-prettier/unicorn').rules,
+};
 
 const config = require('..');
 
@@ -39,7 +43,7 @@ test('prettier rules', (t) => {
     }
 
     t.true(
-      key in eslintConfigPrettier.rules,
+      key in prettierRules,
       `${key} should not be marked as off because of prettier`
     );
   });
