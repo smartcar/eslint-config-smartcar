@@ -347,7 +347,10 @@ module.exports = {
     'import/no-webpack-loader-syntax': 'error',
     'import/no-self-import': 'error',
     'import/no-cycle': 'off', // computationally expensive
-    'import/no-useless-path-segments': 'error', // only works for es modules
+    'import/no-useless-path-segments': [
+      'error',
+      { noUselessIndex: true, commonjs: true },
+    ],
     'import/no-relative-parent-imports': 'off', // breaks the shared "lib" pattern
     'import/no-unused-modules': ES_MODULES,
 
@@ -363,7 +366,7 @@ module.exports = {
         devDependencies: ['test/**/*'],
         optionalDependencies: false,
         peerDependencies: false,
-        // bundledDependencies: false,
+        bundledDependencies: false,
       },
     ],
     'import/no-mutable-exports': 'error', // only works for es modules
@@ -381,11 +384,23 @@ module.exports = {
     'import/no-namespace': ES_MODULES,
     'import/extensions': 'off', // use  node/file-extension-in-import`
     'import/order': [
-      // TODO
-      'off',
+      'error',
       {
-        'newlines-between': 'always',
-        'groups': [],
+        'groups': [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+          'unknown',
+        ],
+        'newlines-between': 'always-and-inside-groups',
+        'alphabetize': {
+          // As of 2.19.1 this option leads to weird behavior when enabled with
+          // `newlines-between`
+          order: 'ignore',
+        },
       },
     ],
     'import/newline-after-import': 'off', // use eslint's padding-line-between-statements
