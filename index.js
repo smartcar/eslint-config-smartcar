@@ -25,10 +25,12 @@ module.exports = {
       files: ['test/**'],
       rules: {
         'global-require': 'off',
+        'sonarjs/no-duplicate-string': 'off',
+        'sonarjs/no-identical-functions': 'off',
       },
     },
   ],
-  plugins: ['import', 'node', 'unicorn'],
+  plugins: ['import', 'node', 'sonarjs', 'unicorn'],
   rules: {
     // Possible Errors
     'for-direction': 'error',
@@ -456,6 +458,40 @@ module.exports = {
     'node/prefer-global/url': 'error',
     'node/prefer-promises/dns': 'error',
     'node/prefer-promises/fs': 'error',
+
+    /**
+     * eslint-plugin-sonarjs
+     *
+     * @see https://github.com/SonarSource/eslint-plugin-sonarjs
+     */
+    // Bug Detection
+    'sonarjs/no-all-duplicated-branches': 'error',
+    'sonarjs/no-element-overwrite': 'error',
+    'sonarjs/no-extra-arguments': 'error',
+    'sonarjs/no-identical-conditions': 'off', // use `no-dupe-else-if`
+    'sonarjs/no-identical-expressions': 'error',
+    'sonarjs/no-one-iteration-loop': 'error',
+    'sonarjs/no-use-of-empty-return-value': 'error',
+
+    // Code Smell Detection
+    'sonarjs/cognitive-complexity': ['error', 15],
+    'sonarjs/max-switch-cases': ['error', 15],
+    'sonarjs/no-collapsible-if': 'off', // too opinionated
+    'sonarjs/no-collection-size-mischeck': 'error',
+    'sonarjs/no-duplicate-string': ['error', 4],
+    'sonarjs/no-duplicated-branches': 'error',
+    'sonarjs/no-identical-functions': 'error',
+    'sonarjs/no-inverted-boolean-check': 'error',
+    'sonarjs/no-redundant-boolean': 'error',
+    'sonarjs/no-redundant-jump': 'error',
+    'sonarjs/no-same-line-conditional': 'off', // prettier
+    'sonarjs/no-small-switch': 'error',
+    'sonarjs/no-unused-collection': 'error',
+    'sonarjs/no-useless-catch': 'error',
+    'sonarjs/prefer-immediate-return': 'error',
+    'sonarjs/prefer-object-literal': 'error',
+    'sonarjs/prefer-single-boolean-return': 'error',
+    'sonarjs/prefer-while': 'error',
 
     /**
      * eslint-plugin-unicorn
