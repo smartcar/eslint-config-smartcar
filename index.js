@@ -30,7 +30,14 @@ module.exports = {
       },
     },
   ],
-  plugins: ['eslint-comments', 'import', 'node', 'sonarjs', 'unicorn'],
+  plugins: [
+    'eslint-comments',
+    'import',
+    'no-use-extend-native',
+    'node',
+    'sonarjs',
+    'unicorn',
+  ],
   rules: {
     // Possible Errors
     'for-direction': 'error',
@@ -339,7 +346,7 @@ module.exports = {
     /**
      * eslint-plugin-comments
      *
-     * @see
+     * @see https://github.com/mysticatea/eslint-plugin-eslint-comments
      */
     // Best Practices
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
@@ -436,6 +443,13 @@ module.exports = {
     'import/no-anonymous-default-export': ES_MODULES,
     'import/group-exports': 'error',
     'import/dynamic-import-chunkname': 'off',
+
+    /**
+     * eslint-plugin-no-use-extend-native
+     *
+     * @see https://github.com/dustinspecker/eslint-plugin-no-use-extend-native
+     */
+    'no-use-extend-native/no-use-extend-native': 'error',
 
     /**
      * eslint-plugin-node
