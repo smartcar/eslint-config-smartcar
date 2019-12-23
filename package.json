@@ -40,14 +40,14 @@
     "eslint": ">=6.6.0"
   },
   "dependencies": {
-    "eslint-config-prettier": "^6.5.0",
+    "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-node": "^10.0.0"
   },
   "devDependencies": {
     "all-eslint-rules": "^6.0.0",
     "ava": "^2.4.0",
-    "eslint": "^6.5.1",
+    "eslint": "^6.8.0",
     "is-plain-obj": "^2.0.0",
     "lodash.difference": "^4.5.0",
     "semantic-release": "^16.0.0-beta.29"
