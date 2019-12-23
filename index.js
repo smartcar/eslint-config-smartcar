@@ -438,7 +438,9 @@ module.exports = {
     'node/no-unsupported-features/es-syntax': 'error',
     'node/no-unsupported-features/node-builtins': 'error',
     'node/process-exit-as-throw': 'error',
-    'node/shebang': 'error',
+    // TODO [2020-03-01]: enable once the following issue is resolved:
+    // https://github.com/mysticatea/eslint-plugin-node/issues/96
+    'node/shebang': 'off',
 
     // Best Practices
     'node/no-deprecated-api': 'error',
