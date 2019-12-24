@@ -99,6 +99,10 @@ configs.forEach(function({ name, config }) {
 
   test(`${name} - integration`, (t) => {
     const fixtures = {
+      ava: {
+        code: "var ava = require('ava')",
+        errors: ['ava/use-test'],
+      },
       index: {
         code: "'use strict';\nconsole.log('unicorn')\n",
         errors: ['padding-line-between-statements', 'no-console'],
