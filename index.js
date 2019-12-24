@@ -221,7 +221,7 @@ module.exports = {
     'keyword-spacing': PRETTIER,
     'line-comment-position': 'off', // too opinionated
     'linebreak-style': PRETTIER,
-    'lines-around-comment': 'off',
+    'lines-around-comment': PRETTIER,
     'lines-between-class-members': [
       'error',
       'always',
@@ -327,7 +327,7 @@ module.exports = {
     'no-useless-rename': 'error',
     'no-var': 'off',
     'object-shorthand': ['error', 'properties'],
-    'prefer-arrow-callback': 'off',
+    'prefer-arrow-callback': PRETTIER,
     'prefer-const': ['error', { destructuring: 'all' }],
     'prefer-destructuring': 'off', // too opinionated
     'prefer-numeric-literals': 'error',
