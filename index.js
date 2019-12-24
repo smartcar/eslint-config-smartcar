@@ -36,6 +36,7 @@ module.exports = {
     'import',
     'no-use-extend-native',
     'node',
+    'promise',
     'sonarjs',
     'unicorn',
   ],
@@ -536,6 +537,28 @@ module.exports = {
     'sonarjs/prefer-object-literal': 'error',
     'sonarjs/prefer-single-boolean-return': 'error',
     'sonarjs/prefer-while': 'error',
+
+    /**
+     * eslint-plugin-promise
+     *
+     * @see https://github.com/xjamundx/eslint-plugin-promise
+     */
+    'promise/catch-or-return': 'error',
+    'promise/no-return-wrap': 'error',
+    'promise/param-names': 'error',
+    'promise/always-return': 'error',
+    'promise/no-native': 'off',
+    'promise/no-nesting': 'error',
+    // avoid using promises in functions where the first arg is named `err` or `error`
+    'promise/no-promise-in-callback': 'error',
+    // avoid calling callback functions (next, done, cb, etc.) inside promises
+    'promise/no-callback-in-promise': 'error',
+    'promise/avoid-new': 'off',
+    'promise/no-new-statics': 'error',
+    'promise/no-return-in-finally': 'error',
+    'promise/valid-params': 'error',
+    'promise/prefer-await-to-then': 'error',
+    'promise/prefer-await-to-callbacks': 'error', // not sure
 
     /**
      * eslint-plugin-unicorn
