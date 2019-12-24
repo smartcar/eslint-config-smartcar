@@ -111,6 +111,10 @@ configs.forEach(function({ name, config }) {
         code: "_.uniq(arr, 'property');",
         errors: ['lodash/no-extra-args'],
       },
+      mocha: {
+        code: 'before(function () { /* ... */ });',
+        errors: ['mocha/no-top-level-hooks'],
+      },
     };
 
     const fixture = fixtures[name];
