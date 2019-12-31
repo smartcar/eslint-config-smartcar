@@ -1,5 +1,3 @@
-/* eslint quote-props: ["error", "consistent"] */
-/* eslint object-curly-spacing: ["error", "always"] */
 'use strict';
 
 // Using 0 instead of "off" so that the our tests can assert that only rules
@@ -37,6 +35,7 @@ module.exports = {
     'jsdoc',
     'no-use-extend-native',
     'node',
+    'prettier',
     'promise',
     'sonarjs',
     'unicorn',
@@ -617,6 +616,13 @@ module.exports = {
     'sonarjs/prefer-object-literal': 'error',
     'sonarjs/prefer-single-boolean-return': 'error',
     'sonarjs/prefer-while': 'error',
+
+    /**
+     * eslint-plugin-prettier
+     *
+     * @see https://github.com/prettier/eslint-plugin-prettier
+     */
+    'prettier/prettier': 'error',
 
     /**
      * eslint-plugin-promise
