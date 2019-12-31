@@ -511,7 +511,7 @@ module.exports = {
     'jsdoc/match-description': 'off',
     'jsdoc/newline-after-description': ['error', 'always'],
     'jsdoc/no-types': 'off', // only needed if using TS
-    'jsdoc/no-undefined-types': 'error',
+    'jsdoc/no-undefined-types': 'off', // weird to enforce without formal TS support
     'jsdoc/require-description-complete-sentence': 'off', // too strict
     'jsdoc/require-description': 'off', // too strict
     'jsdoc/require-example': 'off', // too strict
