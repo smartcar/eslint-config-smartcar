@@ -18,7 +18,7 @@ const prettierRules = {
 
 const configs = readdirSync('.')
   .filter(function(file) {
-    const blacklist = ['release.config.js', '.eslintrc.js'];
+    const blacklist = ['release.config.js', '.eslintrc.js', '.prettierrc.js'];
     return extname(file) === '.js' && !blacklist.includes(file);
   })
   .map(function(file) {
@@ -27,20 +27,20 @@ const configs = readdirSync('.')
   });
 
 configs.forEach(function({ name, config }) {
-  test(`${name} - type check`, (t) => {
+  test(`${name} - type check`, t => {
     t.true(isPlainObj(config));
     t.true(isPlainObj(config.rules));
   });
 
-  test(`${name} - included in package`, (t) => {
+  test(`${name} - included in package`, t => {
     const files = pkg.files;
     t.assert(
       files.includes(name + '.js'),
-      `${name} config not defined as a published file`
+      `${name} config not defined as a published file`,
     );
   });
 
-  test(`${name} - rule definitions`, (t) => {
+  test(`${name} - rule definitions`, t => {
     const cli = new CLIEngine({
       baseConfig: config,
       useEslintrc: false,
@@ -58,24 +58,24 @@ configs.forEach(function({ name, config }) {
      */
     if (name !== 'index') {
       const PLUGIN_RULE_RE = /@?[\w-]+\//u;
-      rules.available = rules.available.filter((rule) =>
-        PLUGIN_RULE_RE.test(rule)
+      rules.available = rules.available.filter(rule =>
+        PLUGIN_RULE_RE.test(rule),
       );
     }
 
     t.deepEqual(
       difference(rules.available, rules.defined),
       [],
-      'missing definitions for the following rules:'
+      'missing definitions for the following rules:',
     );
     t.deepEqual(
       difference(rules.defined, rules.available),
       [],
-      'the following rules should not be defined:'
+      'the following rules should not be defined:',
     );
   });
 
-  test(`${name} - prettier rules`, (t) => {
+  test(`${name} - prettier rules`, t => {
     const rules = Object.entries(config.rules);
 
     for (const [key, value] of rules) {
@@ -84,20 +84,20 @@ configs.forEach(function({ name, config }) {
       if (value === 0) {
         t.true(
           key in prettierRules,
-          `${key} should not be marked as off because of prettier`
+          `${key} should not be marked as off because of prettier`,
         );
       }
 
       if (value === 'off') {
         t.false(
           key in prettierRules,
-          `${key} should be marked as off because of prettier`
+          `${key} should be marked as off because of prettier`,
         );
       }
     }
   });
 
-  test(`${name} - integration`, (t) => {
+  test(`${name} - integration`, t => {
     const fixtures = {
       ava: {
         code: "var ava = require('ava')",
@@ -105,7 +105,11 @@ configs.forEach(function({ name, config }) {
       },
       index: {
         code: "'use strict';\nconsole.log('unicorn')\n",
-        errors: ['padding-line-between-statements', 'no-console'],
+        errors: [
+          'no-console',
+          'padding-line-between-statements',
+          'prettier/prettier',
+        ],
       },
       lodash: {
         code: "_.uniq(arr, 'property');",
@@ -126,7 +130,7 @@ configs.forEach(function({ name, config }) {
     });
     const errors = cli.executeOnText(fixture.code).results[0].messages;
 
-    const ruleIds = errors.map((e) => e.ruleId);
+    const ruleIds = errors.map(e => e.ruleId);
     t.deepEqual(ruleIds.sort(), fixture.errors.sort());
   });
 });
