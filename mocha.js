@@ -4,6 +4,14 @@ module.exports = {
   env: {
     mocha: true,
   },
+  overrides: [
+    {
+      files: ['test/**'],
+      rules: {
+        'no-invalid-this': 'off',
+      },
+    },
+  ],
   plugins: ['mocha'],
   rules: {
     'mocha/handle-done-callback': 'error',
