@@ -499,6 +499,7 @@ module.exports = {
       'error',
       { allowExtraTrailingParamDocs: false },
     ],
+    'jsdoc/check-property-names': 'error',
     'jsdoc/check-syntax': 'error',
     'jsdoc/check-tag-names': 'error',
     'jsdoc/check-types': [
@@ -515,12 +516,17 @@ module.exports = {
     'jsdoc/require-description-complete-sentence': 'off', // too strict
     'jsdoc/require-description': 'off', // too strict
     'jsdoc/require-example': 'off', // too strict
+    'jsdoc/require-file-overview': 'off', // not used
     'jsdoc/require-hyphen-before-param-description': ['error', 'always'],
     'jsdoc/require-jsdoc': 'off', // too strict
     'jsdoc/require-param-description': 'off', // prevent things like @param {number} size - the size
     'jsdoc/require-param-name': 'error',
     'jsdoc/require-param-type': 'error',
     'jsdoc/require-param': 'off',
+    'jsdoc/require-property-description': 'off', // same reason as param description
+    'jsdoc/require-property-name': 'error',
+    'jsdoc/require-property-type': 'error',
+    'jsdoc/require-property': 'error',
     'jsdoc/require-returns-check': 'error',
     'jsdoc/require-returns-description': 'off', // not needed when function is clear enough
     'jsdoc/require-returns-type': 'error',
