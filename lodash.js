@@ -43,7 +43,13 @@ module.exports = {
       { onlyLiterals: false },
     ],
     'lodash/no-commit': 'error',
-    'lodash/path-style': ['error', 'string'],
+    /**
+     * Enable this rule when the following issue is resolved:
+     * https://github.com/wix/eslint-plugin-lodash/issues/219
+     *
+     * TODO [eslint-plugin-lodash@>6.0.0]
+     */
+    'lodash/path-style': 'off',
     'lodash/prefer-compact': 'error',
     'lodash/prefer-filter': ['error', 5],
     'lodash/prefer-find': 'error',
