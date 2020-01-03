@@ -1,31 +1,39 @@
-# @smartcar/eslint-config [![Build Status][ci-image]][ci-url] [![NPM package][npm-image]][npm-url]
+# @smartcar/eslint-config [![Build Status][ci-image]][ci-url]
 
 > ESLint [shareable config](http://eslint.org/docs/developer-guide/shareable-configs.html) for [Smartcar](https://github.com/smartcar)
 
-## Install
+## Installation
 
-*This package is intended for internal use and may not follow Semver guidelines*
+_This package is intended for internal use and may not follow Semver guidelines_
 
-```
-$ npm install --save-dev eslint @smartcar/eslint-config
-```
+1. Authenticate with GitHub package registry by following [these](https://help.github.com/en/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages) steps.
 
-You may also be able to integrate ESLint into your text editor, a list of integrations
-is available [here](http://eslint.org/docs/user-guide/integrations).
+2. `npm install --save-dev eslint @smartcar/eslint-config`
 
-**Note:** If you install eslint globally, you have to install @smartcar/eslint-config
-globally as well (as per [eslint#3293](https://github.com/eslint/eslint/issues/3293)).
-It is recommended to install locally and add scripts to package.json as detailed under usage below.
+3. :tada:
 
-## Usage
+You may also be able to integrate ESLint into your text editor, a list of integrations is available [here](http://eslint.org/docs/user-guide/integrations).
 
-Create a .eslintrc.js file in the root of your project containing the following:
+## Configuration
+
+Create a `.eslintrc.js` file in the root of your project containing the following:
 
 ```js
+'use strict';
+
 module.exports = {
-  extends: '@smartcar',
+  extends: [
+    // required
+    '@smartcar/eslint-config',
+
+    // optional
+    '@smartcar/eslint-config/mocha', // or '@smartcar/eslint-config/ava',
+    '@smartcar/eslint-config/lodash',
+  ],
 };
 ```
+
+Enabling the `mocha`, `ava`, and `lodash` configurations enables rules that are specific to those frameworks.
 
 Add a npm bin script for linting
 
@@ -33,8 +41,8 @@ Add a npm bin script for linting
 {
   "name": "my-awesome-project",
   "scripts": {
-    "lint": "eslint ."
-  },
+    "lint": "eslint . --cache"
+  }
 }
 ```
 
@@ -42,13 +50,15 @@ To run the linter on your project simply run `npm run lint` and ESLint will repo
 back errors and warnings. You can also run `npm run lint -- --fix` to use ESLint's
 automatic fix mode, this will fix most simple style and spacing errors.
 
-
 ## Ignoring
 
 - Ignore at a project level:
+
 ```js
+'use strict';
+
 module.exports = {
-  extends: '@smartcar',
+  extends: '@smartcar/eslint-config',
   rules: {
     camelcase: 'off',
   },
@@ -67,6 +77,7 @@ coverage/*
 ```
 
 - Ignore at a file level:
+
 ```js
 'use strict';
 
@@ -75,6 +86,7 @@ console.log("What's linting?");
 ```
 
 - Ignore block:
+
 ```js
 /* eslint-disable console */
 console.log('No one can stop me!');
@@ -86,30 +98,27 @@ console.log('crap...');
 ```
 
 - Ignore next line:
+
 ```js
 // eslint-disable-next-line no-console
 console.log("I'm free!");
-console.log("I'm an error :( ")
+console.log("I'm an error :( ");
 ```
 
 - Inline ignore:
+
 ```js
 console.log("I'm free!"); // eslint-disable-line no-console
-console.log("I'm an error :( ")
+console.log("I'm an error :( ");
 ```
-
 
 ## Related
 
 - [eslint-config-xo](https://github.com/sindresorhus/eslint-config-xo) - ESLint shareable config for XO
 
-
 ## License
 
 MIT © [Smartcar, Inc.](https://smartcar.com)
-
-[npm-url]: https://www.npmjs.com/package/eslint-config-smartcar
-[npm-image]: https://img.shields.io/npm/v/eslint-config-smartcar.svg?style=flat-square
 
 [ci-url]: https://travis-ci.com/smartcar/eslint-config-smartcar
 [ci-image]: https://img.shields.io/travis/com/smartcar/eslint-config-smartcar/master.svg?style=flat-square
