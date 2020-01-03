@@ -2,45 +2,38 @@
   "name": "@smartcar/eslint-config",
   "version": "0.0.0-semantic-release",
   "description": "Shareable eslint config for smartcar",
-  "main": "index.js",
-  "license": "MIT",
-  "author": {
-    "name": "Smartcar",
-    "email": "hello@smartcar.com",
-    "url": "https://smartcar.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/smartcar/eslint-config-smartcar.git"
-  },
-  "bugs": {
-    "url": "https://github.com/smartcar/eslint-config-smartcar/issues"
-  },
-  "homepage": "https://github.com/smartcar/eslint-config-smartcar#readme",
   "keywords": [
     "eslint",
     "smartcar",
     "lint",
     "style"
   ],
+  "homepage": "https://github.com/smartcar/eslint-config-smartcar#readme",
+  "bugs": {
+    "url": "https://github.com/smartcar/eslint-config-smartcar/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smartcar/eslint-config-smartcar.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Smartcar",
+    "email": "hello@smartcar.com",
+    "url": "https://smartcar.com"
+  },
   "files": [
     "ava.js",
     "index.js",
     "lodash.js",
     "mocha.js"
   ],
-  "engines": {
-    "node": ">=12.0.0",
-    "npm": ">=6.0.0"
-  },
+  "main": "index.js",
   "scripts": {
-    "lint": "eslint . --cache",
+    "check-rules": "eslint --print-config index.js | eslint-config-prettier-check",
+    "lint": "eslint . --cache && sort-package-json",
     "test": "ava",
-    "posttest": "npm run -s check-rules",
-    "check-rules": "eslint --print-config index.js | eslint-config-prettier-check"
-  },
-  "peerDependencies": {
-    "eslint": ">=6.6.0"
+    "posttest": "npm run -s check-rules"
   },
   "dependencies": {
     "@smartcar/prettier-config": "^1.0.0",
@@ -66,6 +59,14 @@
     "is-plain-obj": "^2.0.0",
     "lodash.difference": "^4.5.0",
     "prettier": "^1.19.1",
-    "semantic-release": "^16.0.0-beta.46"
+    "semantic-release": "^16.0.0-beta.46",
+    "sort-package-json": "^1.35.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=6.6.0"
+  },
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": ">=6.0.0"
   }
 }
