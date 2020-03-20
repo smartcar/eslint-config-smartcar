@@ -511,13 +511,19 @@ module.exports = {
     'jsdoc/implements-on-classes': 'error',
     'jsdoc/match-description': 'off',
     'jsdoc/newline-after-description': ['error', 'always'],
+    'jsdoc/no-bad-blocks': 'error',
+    'jsdoc/no-defaults': 'off',
     'jsdoc/no-types': 'off', // only needed if using TS
     'jsdoc/no-undefined-types': 'off', // weird to enforce without formal TS support
     'jsdoc/require-description-complete-sentence': 'off', // too strict
     'jsdoc/require-description': 'off', // too strict
     'jsdoc/require-example': 'off', // too strict
     'jsdoc/require-file-overview': 'off', // not used
-    'jsdoc/require-hyphen-before-param-description': ['error', 'always'],
+    'jsdoc/require-hyphen-before-param-description': [
+      'error',
+      'always',
+      { checkProperties: true },
+    ],
     'jsdoc/require-jsdoc': 'off', // too strict
     'jsdoc/require-param-description': 'off', // prevent things like @param {number} size - the size
     'jsdoc/require-param-name': 'error',
@@ -533,6 +539,7 @@ module.exports = {
     'jsdoc/require-returns': [
       'error',
       {
+        checkGetters: true,
         exemptedBy: ['type'],
         forceRequireReturn: false,
         forceReturnsWithAsync: false,
