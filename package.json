@@ -22,13 +22,13 @@
     "email": "hello@smartcar.com",
     "url": "https://smartcar.com"
   },
+  "main": "index.js",
   "files": [
     "ava.js",
     "index.js",
     "lodash.js",
     "mocha.js"
   ],
-  "main": "index.js",
   "scripts": {
     "check-rules": "eslint --print-config index.js | eslint-config-prettier-check",
     "lint": "eslint . --cache && sort-package-json",
