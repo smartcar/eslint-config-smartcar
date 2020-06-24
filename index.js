@@ -516,7 +516,7 @@ module.exports = {
     'jsdoc/require-hyphen-before-param-description': [
       'error',
       'always',
-      { tags: { '*': 'always' } },
+      { tags: { property: 'always' } },
     ],
     'jsdoc/require-jsdoc': 'off', // too strict
     'jsdoc/require-param-description': 'off', // prevent things like @param {number} size - the size
