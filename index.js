@@ -491,7 +491,7 @@ module.exports = {
     'jsdoc/check-indentation': 'off', // too strict, messes with lists
     'jsdoc/check-param-names': [
       'error',
-      { allowExtraTrailingParamDocs: false },
+      { checkRestProperty: true, allowExtraTrailingParamDocs: false },
     ],
     'jsdoc/check-property-names': 'error',
     'jsdoc/check-syntax': 'error',
@@ -516,7 +516,7 @@ module.exports = {
     'jsdoc/require-hyphen-before-param-description': [
       'error',
       'always',
-      { checkProperties: true },
+      { tags: { '*': 'always' } },
     ],
     'jsdoc/require-jsdoc': 'off', // too strict
     'jsdoc/require-param-description': 'off', // prevent things like @param {number} size - the size
@@ -534,11 +534,12 @@ module.exports = {
       'error',
       {
         checkGetters: true,
-        exemptedBy: ['type'],
+        exemptedBy: ['type', 'inheritdoc'],
         forceRequireReturn: false,
         forceReturnsWithAsync: false,
       },
     ],
+    'jsdoc/require-throws': 'off',
     'jsdoc/valid-types': [
       'error',
       { allowEmptyNamepaths: true, checkSeesForNamepaths: false },
@@ -669,6 +670,7 @@ module.exports = {
      *
      * @see https://github.com/sindresorhus/eslint-plugin-unicorn
      */
+    'unicorn/better-regex': ['error', { sortCharacterClasses: true }],
     'unicorn/catch-error-name': 'off',
     'unicorn/consistent-function-scoping': 'off', // too opinionated
     'unicorn/custom-error-definition': 'error',
@@ -691,24 +693,30 @@ module.exports = {
     'unicorn/no-keyword-prefix': 'off',
     'unicorn/no-nested-ternary': PRETTIER,
     'unicorn/no-new-buffer': 'off', // use `node/no-deprecated-api`
+    'unicorn/no-null': 'off',
     'unicorn/no-process-exit': 'error',
+    'unicorn/no-reduce': 'off',
     'unicorn/no-unreadable-array-destructuring': 'error',
     'unicorn/no-unsafe-regex': 'error',
     'unicorn/no-unused-properties': 'error',
+    'unicorn/no-useless-undefined': 'error',
     'unicorn/no-zero-fractions': 'error',
     'unicorn/number-literal-case': PRETTIER,
     'unicorn/prefer-add-event-listener': 'error',
     'unicorn/prefer-dataset': 'error',
     'unicorn/prefer-event-key': 'error',
-    'unicorn/prefer-exponentiation-operator': 'off', // use `prefer-exponentiation-operator`
     'unicorn/prefer-flat-map': 'error',
     'unicorn/prefer-includes': 'error',
     'unicorn/prefer-modern-dom-apis': 'error',
     'unicorn/prefer-negative-index': 'error',
     'unicorn/prefer-node-append': 'error',
     'unicorn/prefer-node-remove': 'error',
+    'unicorn/prefer-number-properties': 'error',
+    'unicorn/prefer-optional-catch-binding': 'error',
     'unicorn/prefer-query-selector': 'error',
     'unicorn/prefer-reflect-apply': 'error',
+    'unicorn/prefer-replace-all': 'error',
+    'unicorn/prefer-set-has': 'error',
     'unicorn/prefer-spread': 'off', // Array.from is more clear than spread
     'unicorn/prefer-starts-ends-with': 'error',
     'unicorn/prefer-string-slice': 'error',
@@ -716,7 +724,7 @@ module.exports = {
     'unicorn/prefer-trim-start-end': 'error',
     'unicorn/prefer-type-error': 'error',
     'unicorn/prevent-abbreviations': 'off',
-    'unicorn/regex-shorthand': 'error',
+    'unicorn/string-content': 'off',
     'unicorn/throw-new-error': 'error',
   },
 };
