@@ -24,7 +24,7 @@ jobs:
       script:
         - npm test
         - npm run lint
-        - if [[ -n "$(git diff --name-only | grep ^package.json)" ]]; then echo "please run \"npm run lint\""; exit 1; fi
+        - sort-package-json --check
 
     - stage: publish
       node_js: '12'

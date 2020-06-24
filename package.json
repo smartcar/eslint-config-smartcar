@@ -54,13 +54,13 @@
   },
   "devDependencies": {
     "all-eslint-rules": "^6.0.0",
-    "ava": "^2.4.0",
+    "ava": "^3.9.0",
     "eslint": "^6.8.0",
     "is-plain-obj": "^2.0.0",
     "lodash.difference": "^4.5.0",
     "prettier": "^1.19.1",
-    "semantic-release": "^16.0.0-beta.46",
-    "sort-package-json": "^1.35.0"
+    "semantic-release": "^17.1.0",
+    "sort-package-json": "^1.44.0"
   },
   "peerDependencies": {
     "eslint": ">=6.6.0"
