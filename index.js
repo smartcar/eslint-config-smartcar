@@ -22,7 +22,7 @@ module.exports = {
     {
       files: ['test/**'],
       rules: {
-        'global-require': 'off',
+        'node/global-require': 'off',
         'sonarjs/no-duplicate-string': 'off',
         'sonarjs/no-identical-functions': 'off',
       },
@@ -95,8 +95,10 @@ module.exports = {
     'no-inner-declarations': ['error', 'functions'],
     'no-invalid-regexp': 'error',
     'no-irregular-whitespace': 'error',
+    'no-loss-of-precision': 'error',
     'no-misleading-character-class': 'error',
     'no-obj-calls': 'error',
+    'no-promise-executor-return': 'error',
     'no-prototype-builtins': 'error',
     'no-regex-spaces': 'error',
     'no-setter-return': 'error',
@@ -104,8 +106,10 @@ module.exports = {
     'no-template-curly-in-string': 'error',
     'no-unexpected-multiline': 'error',
     'no-unreachable': 'error',
+    'no-unreachable-loop': 'error',
     'no-unsafe-finally': 'error',
     'no-unsafe-negation': ['error', { enforceForOrderingRelations: true }],
+    'no-useless-backreference': 'error',
     'use-isnan': 'error',
     // https://github.com/eslint/eslint/issues/11899
     'require-atomic-updates': 'off',
@@ -120,6 +124,7 @@ module.exports = {
     'consistent-return': 'error',
     'curly': 'error',
     'default-case': 'error',
+    'default-case-last': 'error',
     'default-param-last': 'error',
     'dot-location': PRETTIER,
     'dot-notation': 'error',
@@ -205,19 +210,6 @@ module.exports = {
     'no-undefined': 'off',
     'no-unused-vars': ['error', { vars: 'all', args: 'after-used' }],
     'no-use-before-define': ['error', { functions: false, classes: true }],
-
-    // nodejs & commonjs
-    'callback-return': 'error',
-    'global-require': 'error',
-    'handle-callback-err': 'error',
-    'no-buffer-constructor': 'error',
-    'no-mixed-requires': 'error',
-    'no-new-require': 'error',
-    'no-path-concat': 'error',
-    'no-process-env': 'error',
-    'no-process-exit': 'off', // use `unicorn/no-process-exit`
-    'no-restricted-modules': 'off',
-    'no-sync': ['error', { allowAtRootLevel: true }],
 
     // Style
     'array-bracket-newline': PRETTIER,
@@ -348,6 +340,7 @@ module.exports = {
     'no-dupe-class-members': 'error',
     'no-duplicate-imports': ['error', { includeExports: true }],
     'no-new-symbol': 'error',
+    'no-restricted-exports': 'error',
     'no-restricted-imports': 'off',
     'no-this-before-super': 'error',
     'no-useless-computed-key': 'error',
@@ -563,12 +556,16 @@ module.exports = {
      * @see https://github.com/mysticatea/eslint-plugin-node
      */
     // Possible Errors
+    'node/handle-callback-err': 'error',
     'node/no-callback-literal': 'error',
     'node/no-exports-assign': 'error',
     'node/no-extraneous-import': 'off', // use `import/no-extraneous-dependencies`
     'node/no-extraneous-require': 'off', // use `import/no-extraneous-dependencies`
     'node/no-missing-import': 'error',
     'node/no-missing-require': 'error',
+    'node/no-new-require': 'error',
+    'node/no-path-concat': 'error',
+    'node/no-process-exit': 'off', // use `unicorn/no-process-exit`
     'node/no-unpublished-bin': 'error',
     'node/no-unpublished-import': 'error',
     'node/no-unpublished-require': 'error',
@@ -576,7 +573,7 @@ module.exports = {
     'node/no-unsupported-features/es-syntax': 'error',
     'node/no-unsupported-features/node-builtins': 'error',
     'node/process-exit-as-throw': 'error',
-    // TODO [2020-06-01]: enable once the following issue is resolved:
+    // TODO [2020-09-01]: enable once the following issue is resolved:
     // https://github.com/mysticatea/eslint-plugin-node/issues/96
     'node/shebang': 'off',
 
@@ -584,8 +581,15 @@ module.exports = {
     'node/no-deprecated-api': 'error',
 
     // Stylistic Issues
+    'node/callback-return': 'error',
     'node/exports-style': ['error', 'module.exports'],
     'node/file-extension-in-import': ['error', 'always', { '.js': 'never' }],
+    'node/global-require': 'error',
+    'node/no-mixed-requires': 'error',
+    'node/no-process-env': 'error',
+    'node/no-restricted-import': 'off',
+    'node/no-restricted-require': 'off',
+    'node/no-sync': ['error', { allowAtRootLevel: true }],
     'node/prefer-global/buffer': 'error',
     'node/prefer-global/console': 'error',
     'node/prefer-global/process': 'error',
@@ -685,7 +689,7 @@ module.exports = {
     'unicorn/no-hex-escape': 'error',
     'unicorn/no-keyword-prefix': 'off',
     'unicorn/no-nested-ternary': PRETTIER,
-    'unicorn/no-new-buffer': 'off', // use `no-buffer-constructor`
+    'unicorn/no-new-buffer': 'off', // use `node/no-deprecated-api`
     'unicorn/no-process-exit': 'error',
     'unicorn/no-unreadable-array-destructuring': 'error',
     'unicorn/no-unsafe-regex': 'error',

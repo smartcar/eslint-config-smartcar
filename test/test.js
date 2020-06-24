@@ -3,7 +3,6 @@
 const { readdirSync } = require('fs');
 const { basename, extname, join } = require('path');
 
-const allEslintRules = require('all-eslint-rules');
 const { CLIEngine } = require('eslint');
 const isPlainObj = require('is-plain-obj');
 const test = require('ava');
@@ -46,21 +45,29 @@ configs.forEach(function ({ name, config }) {
       useEslintrc: false,
     });
 
+    cli.executeOnText('');
+
     const rules = {
-      available: allEslintRules(cli).sort(),
+      available: [],
       defined: Object.keys(config.rules).sort(),
     };
 
-    /**
-     * All config files other than index won't define any of the core rules, so
-     * if we are testing a non-index config file we want to filter out any non-plugin
-     * provided rules
-     */
-    if (name !== 'index') {
+    for (const [ruleName, rule] of cli.getRules()) {
+      if (rule.meta && rule.meta.deprecated) {
+        continue;
+      }
+
+      /**
+       * All config files other than index won't define any of the core rules, so
+       * if we are testing a non-index config file we want to filter out any non-plugin
+       * provided rules
+       */
       const PLUGIN_RULE_RE = /@?[\w-]+\//u;
-      rules.available = rules.available.filter(rule =>
-        PLUGIN_RULE_RE.test(rule),
-      );
+      if (name !== 'index' && !PLUGIN_RULE_RE.test(ruleName)) {
+        continue;
+      }
+
+      rules.available.push(ruleName);
     }
 
     t.deepEqual(
