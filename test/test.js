@@ -17,16 +17,16 @@ const prettierRules = {
 };
 
 const configs = readdirSync('.')
-  .filter(function(file) {
+  .filter(function (file) {
     const blacklist = ['release.config.js', '.eslintrc.js', '.prettierrc.js'];
     return extname(file) === '.js' && !blacklist.includes(file);
   })
-  .map(function(file) {
+  .map(function (file) {
     const name = basename(file, '.js');
     return { name, config: require(join('..', file)) };
   });
 
-configs.forEach(function({ name, config }) {
+configs.forEach(function ({ name, config }) {
   test(`${name} - type check`, t => {
     t.true(isPlainObj(config));
     t.true(isPlainObj(config.rules));
