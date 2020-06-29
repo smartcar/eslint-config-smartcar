@@ -687,7 +687,9 @@ module.exports = {
     'unicorn/no-abusive-eslint-disable': 'error',
     'unicorn/no-array-instanceof': 'error',
     'unicorn/no-console-spaces': 'error',
-    'unicorn/no-fn-reference-in-iterator': 'error',
+    // TODO [2020-09-01]: enable once the following issue is resolved:
+    // https://github.com/sindresorhus/eslint-plugin-unicorn/issues/787
+    'unicorn/no-fn-reference-in-iterator': 'off',
     'unicorn/no-for-loop': 'error',
     'unicorn/no-hex-escape': 'error',
     'unicorn/no-keyword-prefix': 'off',
