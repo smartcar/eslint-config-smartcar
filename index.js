@@ -25,6 +25,7 @@ module.exports = {
         'node/global-require': 'off',
         'sonarjs/no-duplicate-string': 'off',
         'sonarjs/no-identical-functions': 'off',
+        'unicorn/no-useless-undefined': 'off',
       },
     },
   ],
