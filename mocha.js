@@ -17,6 +17,7 @@ module.exports = {
     'mocha/handle-done-callback': 'error',
     'mocha/max-top-level-suites': ['error', { limit: 1 }],
     'mocha/no-exclusive-tests': 'warn',
+    'mocha/no-exports': 'error',
     'mocha/no-global-tests': 'error',
     'mocha/no-hooks': 'off',
     'mocha/no-hooks-for-single-case': 'off',

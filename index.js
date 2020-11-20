@@ -481,7 +481,7 @@ module.exports = {
     'import/group-exports': 'error',
     'import/dynamic-import-chunkname': 'off',
 
-    /*
+    /**
      * eslint-plugin-jsdoc
      *
      * @see https://github.com/gajus/eslint-plugin-jsdoc
@@ -490,9 +490,14 @@ module.exports = {
     'jsdoc/check-alignment': 'error',
     'jsdoc/check-examples': 'off', // too strict
     'jsdoc/check-indentation': 'off', // too strict, messes with lists
+    'jsdoc/check-line-alignment': 'off',
     'jsdoc/check-param-names': [
       'error',
-      { checkRestProperty: true, allowExtraTrailingParamDocs: false },
+      {
+        checkDestructured: true,
+        checkRestProperty: true,
+        allowExtraTrailingParamDocs: false,
+      },
     ],
     'jsdoc/check-property-names': 'error',
     'jsdoc/check-syntax': 'error',
@@ -541,10 +546,7 @@ module.exports = {
       },
     ],
     'jsdoc/require-throws': 'off',
-    'jsdoc/valid-types': [
-      'error',
-      { allowEmptyNamepaths: true, checkSeesForNamepaths: false },
-    ],
+    'jsdoc/valid-types': ['error', { allowEmptyNamepaths: true }],
 
     /**
      * eslint-plugin-no-use-extend-native
@@ -576,7 +578,7 @@ module.exports = {
     'node/no-unsupported-features/es-syntax': 'error',
     'node/no-unsupported-features/node-builtins': 'error',
     'node/process-exit-as-throw': 'error',
-    // TODO [2020-09-01]: enable once the following issue is resolved:
+    // TODO [2021-01-01]: enable once the following issue is resolved:
     // https://github.com/mysticatea/eslint-plugin-node/issues/96
     'node/shebang': 'off',
 
@@ -684,11 +686,12 @@ module.exports = {
     'unicorn/explicit-length-check': ['error', { 'non-zero': 'greater-than' }],
     'unicorn/filename-case': 'error',
     'unicorn/import-index': 'off', // use `import/no-useless-path-segments`
+    'unicorn/import-style': ES_MODULES,
     'unicorn/new-for-builtins': 'error',
     'unicorn/no-abusive-eslint-disable': 'error',
     'unicorn/no-array-instanceof': 'error',
     'unicorn/no-console-spaces': 'error',
-    // TODO [2020-09-01]: enable once the following issue is resolved:
+    // TODO [2021-01-01]: enable once the following issue is resolved:
     // https://github.com/sindresorhus/eslint-plugin-unicorn/issues/787
     'unicorn/no-fn-reference-in-iterator': 'off',
     'unicorn/no-for-loop': 'error',
@@ -706,12 +709,14 @@ module.exports = {
     'unicorn/no-useless-undefined': 'error',
     'unicorn/no-zero-fractions': 'error',
     'unicorn/number-literal-case': PRETTIER,
+    'unicorn/numeric-separators-style': 'off',
     'unicorn/prefer-add-event-listener': 'error',
     'unicorn/prefer-array-find': 'error',
     'unicorn/prefer-dataset': 'error',
     'unicorn/prefer-event-key': 'error',
     'unicorn/prefer-flat-map': 'error',
     'unicorn/prefer-includes': 'error',
+    'unicorn/prefer-math-trunc': 'error',
     'unicorn/prefer-modern-dom-apis': 'error',
     'unicorn/prefer-negative-index': 'error',
     'unicorn/prefer-node-append': 'error',
@@ -725,6 +730,7 @@ module.exports = {
     'unicorn/prefer-spread': 'off', // Array.from is more clear than spread
     'unicorn/prefer-starts-ends-with': 'error',
     'unicorn/prefer-string-slice': 'error',
+    'unicorn/prefer-ternary': 'off', // too opinionated
     'unicorn/prefer-text-content': 'error',
     'unicorn/prefer-trim-start-end': 'error',
     'unicorn/prefer-type-error': 'error',
