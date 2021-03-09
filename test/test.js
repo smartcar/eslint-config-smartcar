@@ -17,7 +17,12 @@ const prettierRules = {
 
 const configs = readdirSync('.')
   .filter(function (file) {
-    const blacklist = ['release.config.js', '.eslintrc.js', '.prettierrc.js'];
+    const blacklist = [
+      'release.config.js',
+      '.eslintrc.js',
+      '.prettierrc.js',
+      'typescript.js',
+    ];
     return extname(file) === '.js' && !blacklist.includes(file);
   })
   .map(function (file) {
