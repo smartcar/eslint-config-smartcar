@@ -14,7 +14,7 @@ module.exports = {
     es2017: true,
     es2020: true,
   },
-  extends: ['eslint:recommended', 'prettier', 'prettier/unicorn'],
+  extends: ['eslint:recommended', 'prettier', 'prettier/prettier'],
   parserOptions: {
     ecmaVersion: 2020,
   },
@@ -300,7 +300,7 @@ module.exports = {
     'no-plusplus': 'off',
     'no-restricted-syntax': 'off',
     'no-ternary': 'off',
-    'no-tabs': 'error',
+    'no-tabs': [PRETTIER, { allowIndentationTabs: true }],
     'no-trailing-spaces': PRETTIER,
     'no-underscore-dangle': 'off',
     'no-unneeded-ternary': 'error',
@@ -690,6 +690,7 @@ module.exports = {
     'unicorn/catch-error-name': 'off',
     'unicorn/consistent-function-scoping': 'off', // too opinionated
     'unicorn/custom-error-definition': 'error',
+    'unicorn/empty-brace-spaces': PRETTIER,
     'unicorn/error-message': 'error',
     'unicorn/escape-case': 'error',
     'unicorn/expiring-todo-comments': [
