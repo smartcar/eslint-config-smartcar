@@ -13,7 +13,7 @@ const pkg = require('../package.json');
 
 const prettierRules = {
   ...require('eslint-config-prettier').rules,
-  ...require('eslint-config-prettier/unicorn').rules,
+  ...require('eslint-config-prettier/prettier').rules,
 };
 
 const configs = readdirSync('.')
