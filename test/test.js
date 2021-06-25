@@ -3,7 +3,7 @@
 const { readdirSync } = require('fs');
 const { basename, extname, join } = require('path');
 
-const { CLIEngine } = require('eslint');
+const { CLIEngine, ESLint } = require('eslint');
 const isPlainObj = require('is-plain-obj');
 const test = require('ava');
 const difference = require('lodash.difference');
@@ -104,7 +104,7 @@ configs.forEach(function ({ name, config }) {
     }
   });
 
-  test(`${name} - integration`, t => {
+  test(`${name} - integration`, async t => {
     const fixtures = {
       ava: {
         code: "var ava = require('ava')",
@@ -131,13 +131,13 @@ configs.forEach(function ({ name, config }) {
     const fixture = fixtures[name];
     t.assert(fixtures[name], `missing integration test fixture for ${name}`);
 
-    const cli = new CLIEngine({
+    const eslint = new ESLint({
       baseConfig: config,
       useEslintrc: false,
     });
-    const errors = cli.executeOnText(fixture.code).results[0].messages;
+    const [result] = await eslint.lintText(fixture.code);
 
-    const ruleIds = errors.map(e => e.ruleId);
+    const ruleIds = result.messages.map(e => e.ruleId);
     t.deepEqual(ruleIds.sort(), fixture.errors.sort());
   });
 });
