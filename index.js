@@ -122,7 +122,7 @@ module.exports = {
 
     // Best Practices
     'accessor-pairs': 'error',
-    'array-callback-return': 'error',
+    'array-callback-return': ['error', { allowImplicit: true }],
     'block-scoped-var': 'error',
     'class-methods-use-this': 'error',
     'complexity': 'error',
@@ -714,6 +714,7 @@ module.exports = {
     'unicorn/no-for-loop': 'error',
     'unicorn/no-hex-escape': 'error',
     'unicorn/no-keyword-prefix': 'off',
+    'unicorn/no-lonely-if': 'error',
     'unicorn/no-nested-ternary': PRETTIER,
     'unicorn/no-new-buffer': 'off', // use `node/no-deprecated-api`
     'unicorn/no-null': 'off',
@@ -723,12 +724,15 @@ module.exports = {
     'unicorn/no-unreadable-array-destructuring': 'error',
     'unicorn/no-unsafe-regex': 'error',
     'unicorn/no-unused-properties': 'error',
-    'unicorn/no-useless-undefined': 'error',
+    'unicorn/no-useless-undefined': ['error', { checkArguments: true }],
     'unicorn/no-zero-fractions': 'error',
     'unicorn/number-literal-case': PRETTIER,
     'unicorn/numeric-separators-style': 'off',
     'unicorn/prefer-add-event-listener': 'error',
     'unicorn/prefer-array-find': 'error',
+    'unicorn/prefer-array-some': 'error',
+    'unicorn/prefer-date-now': 'error',
+    'unicorn/prefer-default-parameters': 'error',
     'unicorn/prefer-dataset': 'error',
     'unicorn/prefer-event-key': 'error',
     'unicorn/prefer-flat-map': 'error',
