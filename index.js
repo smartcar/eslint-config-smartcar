@@ -458,7 +458,7 @@ module.exports = {
       { noUselessIndex: true, commonjs: true },
     ],
     'import/no-relative-parent-imports': 'off', // breaks the shared "lib" pattern
-    'import/no-unused-modules': ES_MODULES,
+    'import/no-relative-packages': 'error',
 
     // Helpful Warnings
     'import/export': 'error', // only works for es modules
@@ -476,12 +476,14 @@ module.exports = {
       },
     ],
     'import/no-mutable-exports': 'error', // only works for es modules
+    'import/no-unused-modules': ES_MODULES,
 
     // Module Systems
     'import/unambiguous': 'error',
     'import/no-commonjs': 'off',
     'import/no-amd': 'error',
     'import/no-nodejs-modules': 'off',
+    'import/no-import-module-exports': 'error',
 
     // Style
     'import/first': 'error', // only works for es modules
@@ -507,6 +509,7 @@ module.exports = {
           // `newlines-between`
           order: 'ignore',
         },
+        'warnOnUnassignedImports': true,
       },
     ],
     'import/newline-after-import': 'off', // use eslint's padding-line-between-statements
