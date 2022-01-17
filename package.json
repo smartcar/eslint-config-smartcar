@@ -58,7 +58,7 @@
     "is-plain-obj": "3.0.0",
     "lodash.difference": "4.5.0",
     "prettier": "2.2.0",
-    "semantic-release": "17.2.4",
+    "semantic-release": "18.0.1",
     "sort-package-json": "1.47.0"
   },
   "peerDependencies": {
