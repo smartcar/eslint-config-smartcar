@@ -53,13 +53,13 @@
     "eslint-plugin-unicorn": "23.0.0"
   },
   "devDependencies": {
-    "ava": "3.13.0",
+    "ava": "3.15.0",
     "eslint": "7.32.0",
     "is-plain-obj": "3.0.0",
     "lodash.difference": "4.5.0",
-    "prettier": "2.2.0",
+    "prettier": "2.5.1",
     "semantic-release": "18.0.1",
-    "sort-package-json": "1.47.0"
+    "sort-package-json": "1.53.1"
   },
   "peerDependencies": {
     "eslint": ">=7.13.0"
