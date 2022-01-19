@@ -1,8 +1,8 @@
 /* eslint-disable n/global-require */
 'use strict';
 
-const { readdirSync } = require('fs');
-const { basename, extname, join } = require('path');
+const { readdirSync } = require('node:fs');
+const { basename, extname, join } = require('node:path');
 
 const { ESLint } = require('eslint');
 const isPlainObj = require('is-plain-obj');
