@@ -122,7 +122,10 @@ module.exports = {
 
     // Best Practices
     'accessor-pairs': 'error',
-    'array-callback-return': 'error',
+    'array-callback-return': [
+      'error',
+      { allowImplicit: true, checkForEach: true },
+    ],
     'block-scoped-var': 'error',
     'class-methods-use-this': 'error',
     'complexity': 'error',
