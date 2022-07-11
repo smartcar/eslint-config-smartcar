@@ -542,6 +542,8 @@ module.exports = {
         checkDestructured: true,
         checkRestProperty: true,
         allowExtraTrailingParamDocs: false,
+        useDefaultObjectProperties: false,
+        disableExtraPropertyReporting: true,
       },
     ],
     'jsdoc/check-property-names': 'error',
@@ -555,11 +557,42 @@ module.exports = {
     'jsdoc/empty-tags': 'error',
     'jsdoc/implements-on-classes': 'error',
     'jsdoc/match-description': 'off',
+    'jsdoc/match-name': 'off',
+    'jsdoc/multiline-blocks': [
+      'error',
+      {
+        noZeroLineText: true, // default
+        noFinalLineText: true, // default
+
+        noSingleLineBlocks: true,
+        singleLineTags: ['lends', 'type'], // default
+
+        noMultilineBlocks: false, // default
+        // minimumLengthForMultiline,
+        multilineTags: ['*'], // default
+        allowMultipleTags: true, // default
+      },
+    ],
     'jsdoc/newline-after-description': ['error', 'always'],
-    'jsdoc/no-bad-blocks': 'error',
+    'jsdoc/no-bad-blocks': ['error', { preventAllMultiAsteriskBlocks: true }],
     'jsdoc/no-defaults': 'off',
+    'jsdoc/no-missing-syntax': 'off',
+    'jsdoc/no-multi-asterisks': [
+      'error',
+      {
+        allowWhitespace: true,
+        preventAtMiddleLines: true, // default
+        preventAtEnd: true, // default
+      },
+    ],
+    'jsdoc/no-restricted-syntax': 'off',
     'jsdoc/no-types': 'off', // only needed if using TS
     'jsdoc/no-undefined-types': 'off', // weird to enforce without formal TS support
+    'jsdoc/require-asterisk-prefix': [
+      'error',
+      'always',
+      { tags: { any: ['*description'] } },
+    ],
     'jsdoc/require-description-complete-sentence': 'off', // too strict
     'jsdoc/require-description': 'off', // too strict
     'jsdoc/require-example': 'off', // too strict
@@ -578,7 +611,10 @@ module.exports = {
     'jsdoc/require-property-name': 'error',
     'jsdoc/require-property-type': 'error',
     'jsdoc/require-property': 'error',
-    'jsdoc/require-returns-check': 'error',
+    'jsdoc/require-returns-check': [
+      'error',
+      { exemptGenerators: false, exemptAsync: false },
+    ],
     'jsdoc/require-returns-description': 'off', // not needed when function is clear enough
     'jsdoc/require-returns-type': 'error',
     'jsdoc/require-returns': [
@@ -590,7 +626,17 @@ module.exports = {
         forceReturnsWithAsync: false,
       },
     ],
+    'jsdoc/require-yields': [
+      'error',
+      { withGeneratorTag: true, next: true, forceRequireNext: false },
+    ],
+    'jsdoc/require-yields-check': [
+      'error',
+      { checkGeneratorsOnly: true, next: true },
+    ],
     'jsdoc/require-throws': 'off',
+    'jsdoc/sort-tags': ['error', { alphabetizeExtras: true }],
+    'jsdoc/tag-lines': 'off',
     'jsdoc/valid-types': ['error', { allowEmptyNamepaths: true }],
 
     /**
