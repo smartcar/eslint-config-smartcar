@@ -1,3 +1,4 @@
+/* eslint-disable n/global-require */
 'use strict';
 
 const { readdirSync } = require('fs');

@@ -35,7 +35,7 @@ module.exports = {
     'import',
     'jsdoc',
     'no-use-extend-native',
-    'node',
+    'n',
     'prettier',
     'promise',
     'sonarjs',
@@ -595,54 +595,54 @@ module.exports = {
     'no-use-extend-native/no-use-extend-native': 'error',
 
     /**
-     * eslint-plugin-node
+     * eslint-plugin-n
      *
-     * @see https://github.com/mysticatea/eslint-plugin-node
+     * @see https://github.com/weiran-zsd/eslint-plugin-node
      */
     // Possible Errors
-    'node/handle-callback-err': 'error',
-    'node/no-callback-literal': 'error',
-    'node/no-exports-assign': 'error',
-    'node/no-extraneous-import': 'off', // use `import/no-extraneous-dependencies`
-    'node/no-extraneous-require': 'off', // use `import/no-extraneous-dependencies`
-    'node/no-missing-import': 'error',
-    'node/no-missing-require': 'error',
-    'node/no-new-require': 'error',
-    'node/no-path-concat': 'error',
-    'node/no-process-exit': 'off', // use `unicorn/no-process-exit`
-    'node/no-unpublished-bin': 'error',
-    'node/no-unpublished-import': 'error',
-    'node/no-unpublished-require': 'error',
-    'node/no-unsupported-features/es-builtins': 'error',
-    'node/no-unsupported-features/es-syntax': 'error',
-    'node/no-unsupported-features/node-builtins': 'error',
-    'node/process-exit-as-throw': 'error',
+    'n/handle-callback-err': 'error',
+    'n/no-callback-literal': 'error',
+    'n/no-exports-assign': 'error',
+    'n/no-extraneous-import': 'off', // use `import/no-extraneous-dependencies`
+    'n/no-extraneous-require': 'off', // use `import/no-extraneous-dependencies`
+    'n/no-missing-import': 'error',
+    'n/no-missing-require': 'error',
+    'n/no-new-require': 'error',
+    'n/no-path-concat': 'error',
+    'n/no-process-exit': 'off', // use `unicorn/no-process-exit`
+    'n/no-unpublished-bin': 'error',
+    'n/no-unpublished-import': 'error',
+    'n/no-unpublished-require': 'error',
+    'n/no-unsupported-features/es-builtins': 'error',
+    'n/no-unsupported-features/es-syntax': 'error',
+    'n/no-unsupported-features/node-builtins': 'error',
+    'n/process-exit-as-throw': 'error',
     // TODO [2022-07-31]: enable once the following issue is resolved:
     // https://github.com/mysticatea/eslint-plugin-node/issues/96
-    'node/shebang': 'off',
+    'n/shebang': 'off',
 
     // Best Practices
-    'node/no-deprecated-api': 'error',
+    'n/no-deprecated-api': 'error',
 
     // Stylistic Issues
-    'node/callback-return': 'error',
-    'node/exports-style': ['error', 'module.exports'],
-    'node/file-extension-in-import': ['error', 'always', { '.js': 'never' }],
-    'node/global-require': 'error',
-    'node/no-mixed-requires': 'error',
-    'node/no-process-env': 'error',
-    'node/no-restricted-import': 'off',
-    'node/no-restricted-require': 'off',
-    'node/no-sync': ['error', { allowAtRootLevel: true }],
-    'node/prefer-global/buffer': 'error',
-    'node/prefer-global/console': 'error',
-    'node/prefer-global/process': 'error',
-    'node/prefer-global/text-decoder': 'error',
-    'node/prefer-global/text-encoder': 'error',
-    'node/prefer-global/url-search-params': 'error',
-    'node/prefer-global/url': 'error',
-    'node/prefer-promises/dns': 'error',
-    'node/prefer-promises/fs': 'error',
+    'n/callback-return': 'error',
+    'n/exports-style': ['error', 'module.exports'],
+    'n/file-extension-in-import': ['error', 'always', { '.js': 'never' }],
+    'n/global-require': 'error',
+    'n/no-mixed-requires': 'error',
+    'n/no-process-env': 'error',
+    'n/no-restricted-import': 'off',
+    'n/no-restricted-require': 'off',
+    'n/no-sync': ['error', { allowAtRootLevel: true }],
+    'n/prefer-global/buffer': 'error',
+    'n/prefer-global/console': 'error',
+    'n/prefer-global/process': 'error',
+    'n/prefer-global/text-decoder': 'error',
+    'n/prefer-global/text-encoder': 'error',
+    'n/prefer-global/url-search-params': 'error',
+    'n/prefer-global/url': 'error',
+    'n/prefer-promises/dns': 'error',
+    'n/prefer-promises/fs': 'error',
 
     /**
      * eslint-plugin-sonarjs
