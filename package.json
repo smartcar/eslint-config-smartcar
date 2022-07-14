@@ -36,7 +36,6 @@
     "posttest": "npm run -s check-rules"
   },
   "dependencies": {
-    "@smartcar/prettier-config": "1.0.1",
     "eslint-config-prettier": "6.15.0",
     "eslint-plugin-array-func": "3.1.7",
     "eslint-plugin-ava": "11.0.0",
@@ -53,6 +52,7 @@
     "eslint-plugin-unicorn": "23.0.0"
   },
   "devDependencies": {
+    "@smartcar/prettier-config": "1.0.1",
     "ava": "3.15.0",
     "eslint": "7.32.0",
     "is-plain-obj": "3.0.0",
