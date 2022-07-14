@@ -114,6 +114,7 @@ module.exports = {
       'error',
       { disallowArithmeticOperators: true },
     ],
+    'no-unused-private-class-members': 'error',
     'no-useless-backreference': 'error',
     'use-isnan': 'error',
     // https://github.com/eslint/eslint/issues/11899
@@ -127,7 +128,7 @@ module.exports = {
       { allowImplicit: true, checkForEach: true },
     ],
     'block-scoped-var': 'error',
-    'class-methods-use-this': 'error',
+    'class-methods-use-this': ['error', { enforceForClassFields: true }],
     'complexity': 'error',
     'consistent-return': 'error',
     'curly': 'error',
@@ -225,8 +226,25 @@ module.exports = {
     'no-undef': 'error',
     'no-undef-init': 'error',
     'no-undefined': 'off',
-    'no-unused-vars': ['error', { vars: 'all', args: 'after-used' }],
-    'no-use-before-define': ['error', { functions: false, classes: true }],
+    'no-unused-vars': [
+      'error',
+      {
+        vars: 'all',
+        args: 'after-used',
+        destructuredArrayIgnorePattern: '^_',
+        // This is hanedled by unicorn/prefer-optional-catch-binding
+        caughtErrors: 'none',
+      },
+    ],
+    'no-use-before-define': [
+      'error',
+      {
+        functions: false,
+        classes: true,
+        variables: true,
+        allowNamedExports: false,
+      },
+    ],
 
     // Style
     'array-bracket-newline': PRETTIER,
@@ -352,8 +370,12 @@ module.exports = {
     'constructor-super': 'error',
     'generator-star-spacing': PRETTIER,
     'no-class-assign': 'error',
-    'no-confusing-arrow': ['error', { allowParens: false }],
+    'no-confusing-arrow': [
+      'error',
+      { allowParens: false, onlyOneSimpleParam: false },
+    ],
     'no-const-assign': 'error',
+    'no-constant-binary-expression': 'error',
     'no-dupe-class-members': 'error',
     'no-duplicate-imports': ['error', { includeExports: true }],
     'no-new-symbol': 'error',
@@ -369,6 +391,7 @@ module.exports = {
     'prefer-const': ['error', { destructuring: 'all' }],
     'prefer-destructuring': 'off', // too opinionated
     'prefer-numeric-literals': 'error',
+    'prefer-object-has-own': 'error',
     'prefer-rest-params': 'error',
     'prefer-spread': 'error',
     'prefer-template': 'off',

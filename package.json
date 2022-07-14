@@ -54,7 +54,7 @@
   "devDependencies": {
     "@smartcar/prettier-config": "2.0.0",
     "ava": "4.3.1",
-    "eslint": "7.32.0",
+    "eslint": "8.19.0",
     "is-plain-obj": "3.0.0",
     "lodash.difference": "4.5.0",
     "prettier": "2.7.1",
@@ -62,7 +62,7 @@
     "sort-package-json": "1.57.0"
   },
   "peerDependencies": {
-    "eslint": ">=7.13.0"
+    "eslint": ">=8.19.0"
   },
   "engines": {
     "node": ">=14.15.0",

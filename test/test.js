@@ -79,7 +79,7 @@ configs.forEach(function ({ name, config }) {
      * if we are testing a non-index config file we don't want to add the core rules
      */
     if (name === 'index') {
-      pushRules(require('eslint/lib/rules').entries());
+      pushRules(require('eslint/use-at-your-own-risk').builtinRules.entries());
     }
 
     t.deepEqual(
