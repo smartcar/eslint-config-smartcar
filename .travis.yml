@@ -29,6 +29,7 @@ script:
   - npm test
   - npm run lint
   - sort-package-json --check
+  - prettier --check .
 
 deploy:
   provider: script

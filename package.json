@@ -31,7 +31,9 @@
   ],
   "scripts": {
     "check-rules": "eslint-config-prettier index.js",
-    "lint": "eslint . --cache && sort-package-json",
+    "lint": "eslint . --cache && sort-package-json --check && prettier --check .",
+    "lint:fix": "eslint . --cache --fix && sort-package-json && prettier --write .",
+    "prepare": "husky install",
     "test": "ava",
     "posttest": "npm run -s check-rules"
   },
@@ -55,6 +57,7 @@
     "@smartcar/prettier-config": "2.0.0",
     "ava": "4.3.1",
     "eslint": "8.19.0",
+    "husky": "^8.0.0",
     "is-plain-obj": "3.0.0",
     "lodash.difference": "4.5.0",
     "prettier": "2.7.1",
