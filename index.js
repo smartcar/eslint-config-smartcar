@@ -523,7 +523,6 @@ module.exports = {
     'jsdoc/empty-tags': 'error',
     'jsdoc/implements-on-classes': 'error',
     'jsdoc/match-description': 'off',
-    'jsdoc/newline-after-description': ['error', 'always'],
     'jsdoc/no-bad-blocks': 'error',
     'jsdoc/no-defaults': 'off',
     'jsdoc/no-types': 'off', // only needed if using TS
