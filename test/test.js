@@ -3,7 +3,7 @@
 const { readdirSync } = require('fs');
 const { basename, extname, join } = require('path');
 
-const { CLIEngine, ESLint } = require('eslint');
+const { ESLint } = require('eslint');
 const isPlainObj = require('is-plain-obj');
 const test = require('ava');
 const difference = require('lodash.difference');
@@ -11,8 +11,7 @@ const difference = require('lodash.difference');
 const pkg = require('../package.json');
 
 const prettierRules = {
-  ...require('eslint-config-prettier').rules,
-  ...require('eslint-config-prettier/unicorn').rules,
+  ...require('eslint-config-prettier').rules
 };
 
 const configs = readdirSync('.')
@@ -40,12 +39,12 @@ configs.forEach(function ({ name, config }) {
   });
 
   test(`${name} - rule definitions`, t => {
-    const cli = new CLIEngine({
+    const cli = new ESLint({
       baseConfig: config,
       useEslintrc: false,
     });
 
-    cli.executeOnText('');
+    cli.lintText('');
 
     const rules = {
       available: [],
