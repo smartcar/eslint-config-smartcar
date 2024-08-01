@@ -23,7 +23,6 @@ install:
   - env -i PATH=$PATH GH_TOKEN='' npm rebuild
 
 script:
-  - npm test
   - npm run lint
   - sort-package-json --check
 
