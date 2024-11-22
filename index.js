@@ -591,7 +591,7 @@ module.exports = {
     'node/no-unsupported-features/es-syntax': 'error',
     'node/no-unsupported-features/node-builtins': 'error',
     'node/process-exit-as-throw': 'error',
-    // TODO [2022-05-31]: enable once the following issue is resolved:
+    // TODO [2025-05-31]: enable once the following issue is resolved:
     // https://github.com/mysticatea/eslint-plugin-node/issues/96
     'node/shebang': 'off',
 
@@ -704,7 +704,7 @@ module.exports = {
     'unicorn/no-abusive-eslint-disable': 'error',
     'unicorn/no-array-instanceof': 'error',
     'unicorn/no-console-spaces': 'error',
-    // TODO [2022-05-31]: enable once the following issue is resolved:
+    // TODO [2025-05-31]: enable once the following issue is resolved:
     // https://github.com/sindresorhus/eslint-plugin-unicorn/issues/787
     'unicorn/no-fn-reference-in-iterator': 'off',
     'unicorn/no-for-loop': 'error',
