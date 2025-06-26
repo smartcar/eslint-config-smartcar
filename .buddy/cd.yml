@@ -1,0 +1,26 @@
+- pipeline: ci
+  name: CI
+  events:
+  - type: PUSH
+    refs:
+    - refs/heads/*
+  fail_on_prepare_env_warning: true
+  actions:
+  - action: build dev dependencies
+    type: BUILD
+    docker_image_name: library/node
+    docker_image_tag: 14
+    execute_commands:
+    - npm ci --ignore-scripts
+    - env -i PATH=$PATH GH_TOKEN='' npm rebuild
+    shell: BASH
+  - action: Run tests
+    type: BUILD
+    docker_image_name: library/node
+    docker_image_tag: 14
+    execute_commands:
+    - npm test
+    - npm run lint
+    - npx sort-package-json --check
+    shell: BASH
+    run_next: IN_SOFT_PARALLEL
